@@ -23,6 +23,10 @@ app.get('/', (req, res) => {
     res.render('auth/register');
 })
 
+app.get('/', (req,res) => {
+    res.render('admin/tableManager/createTable')
+})
+
 app.listen(3000, 'localhost', () => {
     console.log('Server is running at http://localhost:3000');
 })
