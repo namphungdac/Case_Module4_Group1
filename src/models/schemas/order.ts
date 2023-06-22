@@ -6,6 +6,7 @@ export interface IOrder extends Document {
     timeOrder: Date;
     checkin: Date;
     typeOrder: Object;
+
 }
 
 const orderSchema: Schema = new  Schema<IOrder>({

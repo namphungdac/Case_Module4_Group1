@@ -4,7 +4,7 @@ export interface IUser extends Document {
     userName: String;
     password: String;
     role: String;
-    avatar: String
+    avatar: String;
     phoneNumber: String
 }
 

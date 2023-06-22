@@ -19,6 +19,9 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: true }
 }));
+app.get('/', (req, res) => {
+    res.render('auth/register');
+})
 
 app.get('/', (req,res) => {
     res.render('admin/tableManager/createTable')
