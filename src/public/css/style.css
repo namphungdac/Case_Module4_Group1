@@ -609,3 +609,18 @@
 	padding: 10px 15px;
 	border-radius: 4px;
 }
+
+
+/* avt */
+
+.circle img {
+	border-radius: 50%;	/* relative value for
+				   adjustable image size */
+}
+.circle:hover {
+	transition: ease-out 0.2s;
+  -webkit-transition: ease-out 0.2s;
+}
+a.circle {
+  color: transparent;
+} /* IE fix: removes blue border */	
