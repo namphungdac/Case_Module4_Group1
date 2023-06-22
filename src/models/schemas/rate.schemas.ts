@@ -1,11 +1,11 @@
 import {Schema, Document, model} from "mongoose";
 
 export interface IRate extends Document {
-    comment: String;
-    countDislike: Number;
-    countLike: Number;
-    user: Object;
-    food: Object
+    comment: string;
+    countDislike: number;
+    countLike: number;
+    user: object;
+    food: object
 }
 
 const rateSchema: Schema = new  Schema<IRate>({

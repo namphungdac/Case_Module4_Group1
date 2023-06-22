@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from "body-parser";
 import session from "express-session";
 import {MongoDB} from "./src/models/data-source";
+import authRouter from "./src/routers/auth.router";
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -19,13 +20,11 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: true }
 }));
-app.get('/', (req, res) => {
-    res.render('auth/register');
-})
 
 app.get('/', (req,res) => {
-    res.render('admin/tableManager/createTable')
-})
+    res.render('admin/foodManager/createFood')
+});
+app.use('/auth',authRouter)
 
 app.listen(3000, 'localhost', () => {
     console.log('Server is running at http://localhost:3000');

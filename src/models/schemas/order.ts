@@ -1,11 +1,11 @@
 import {Schema, Document, model} from "mongoose";
 
 export interface IOrder extends Document {
-    user: Object;
-    table: Object;
+    user: object;
+    table: object;
     timeOrder: Date;
     checkin: Date;
-    typeOrder: Object;
+    typeOrder: object;
 
 }
 
