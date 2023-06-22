@@ -1,12 +1,12 @@
 import {Schema, Document, model} from "mongoose";
 
 export interface IFood extends Document {
-    name: String;
-    type: String;
-    price: Number;
-    description: String;
-    rate: Object;
-    imgUrl: String
+    name: string;
+    type: string;
+    price: number;
+    description: string;
+    rate: object;
+    imgUrl: string
 }
 
 const foodSchema: Schema = new  Schema<IFood>({

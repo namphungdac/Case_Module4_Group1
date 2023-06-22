@@ -1,11 +1,11 @@
 import {Schema, Document, model} from "mongoose";
 
 export interface ITable extends Document {
-    name: String;
-    numberPerson: String;
-    description: String;
-    price: Number;
-    imgUrl: String
+    name: string;
+    numberPerson: string;
+    description: string;
+    price: number;
+    imgUrl: string
 }
 
 const tableSchema: Schema = new  Schema<ITable>({

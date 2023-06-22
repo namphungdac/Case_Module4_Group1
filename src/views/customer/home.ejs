@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <title>Restoran - Bootstrap Restaurant Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -62,13 +63,13 @@
                     </div>
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="" class="circle nav-item mt-3">
-                            <img height="50" width="50" src="img/no-avatar.png" alt="Avatar">
+                            <img height="50" width="50" src="/upload/avatar/<%= customer.avatar %>" alt="Avatar">
                         </a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Username</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><%= customer.username %></a>
                             <div class="dropdown-menu m-0">
                                 <a href="team.html" class="dropdown-item">Thông Tin Cá Nhân</a>
-                                <a href="testimonial.html" class="dropdown-item">Đăng Xuất</a>
+                                <a href="auth/logout" class="dropdown-item">Đăng Xuất</a>
                         </div>
                     </div>
                 </div>
