@@ -19,6 +19,9 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: true }
 }));
+app.get('/', (req, res) => {
+    res.render('auth/register');
+})
 
 app.listen(3000, 'localhost', () => {
     console.log('Server is running at http://localhost:3000');
