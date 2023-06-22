@@ -8,6 +8,7 @@
     <title>HKP Shop</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <base href="/">
 
     <!-- Favicons -->
     <link href="assets/img/png/logo-no-background.png" rel="icon">
@@ -124,7 +125,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/foodManager/addFood">
+                    <a href="/admin/createFood">
                         <i class="bi bi-circle"></i><span>Thêm Mới Món Ăn</span>
                     </a>
                 </li>
@@ -178,38 +179,44 @@
               <label for="size_page">Items/Page</label>
             </form>
           </div>
-          <div><h3>List Books</h2></div>
-          <div><b>Total: 6</div>
+          <div><h3>Danh sách món ăn</h2></div>
+          <div><b>Total: <%= total %></div>
         </div>
         <div class="card-body text-center">
           <table
             class="table table-striped table-bordered table-hover text-center align-middle">
             <tr>
               <th>#</th>
+              <th>avatar</th>
               <th>Name</th>
-              <th>Category</th>
-              <th>Author</th>
-              <th>Keyword</th>
-              <th>Publisher</th>
+              <th>Type</th>
+              <th>Price</th>
+              <th>Description</th>
               <th>Options</th>
-            </tr>
-            <tr>
-              <td>abc</td>
-              <td>abc</td>
-              <td>abc</td>
-              <td>abc</td>
-              <td>abc</td>
-              <td>abc</td>
-              <td>
-                <a
-                  onclick="return confirm('Are you sure you want to delete this staff?')"
-                  href="/delete"
-                  class="btn btn-danger">Delete</a>
-                <a
-                  href="/update"
-                  class="btn btn-primary">Update</a>
-              </td>
-            </tr>
+
+              </tr>
+           <% foods.forEach((food,index)=>{ %>
+                <tr>
+
+                    <th><%= index + 1%></th>
+                    <td class="col-1">
+                        <img src="<%= food.imgUrl %>" class="img-fluid" alt="ảnh">
+                    </td>
+                    <td><%= food.name %></td>
+                    <td><%= food.type %></td>
+                    <td><%= food.price %></td>
+                    <td><%= food.description %></td>
+                    <td>
+                      <a
+                        onclick="return confirm('Are you sure you want to delete this staff?')"
+                        href="/admin/delete/<%= food.id%>"
+                        class="btn btn-danger">Delete</a>
+                      <a
+                        href="/admin/update/<%= food.id%>"
+                        class="btn btn-primary">Update</a>
+                    </td>
+                  </tr>
+            <% }) %>
           </table>
         </div>
       </div>

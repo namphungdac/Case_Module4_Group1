@@ -5,7 +5,7 @@ export interface IFood extends Document {
     type: String;
     price: Number;
     description: String;
-    rate: Object;
+    rate: Object | null;
     imgUrl: String
 }
 

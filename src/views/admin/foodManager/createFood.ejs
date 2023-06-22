@@ -8,6 +8,7 @@
     <title>HKP Shop</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <base href="/">
 
     <!-- Favicons -->
     <link href="assets/img/png/logo-no-background.png" rel="icon">
@@ -200,10 +201,11 @@
                                 <div class="col-md-8 col-lg-9">
                                     <select class="form-select" name="type" aria-label="select-product">
                                         <option selected value="user">Chọn Loại</option>
-                                        <option value="admin">Món Âu</option>
-                                        <option value="user">Món Nhật</option>
-                                        <option value="user">Món Nướng</option>
-                                        <option value="user">Món Chay</option>
+                                        <option value="Món Âu">Món Âu</option>
+                                        <option value="Món Nhật">Món Nhật</option>
+                                        <option value="Món Nướng">Món Nướng</option>
+                                        <option value="Món Chay">Món Chay</option>
+                                        <option value="Đồ uống">Đồ Uống</option>
                                     </select>
                                 </div>
                             </div>
@@ -216,7 +218,7 @@
                             <div class="row mb-3">
                                 <label for="about" class="col-md-4 col-lg-3 col-form-label">Mô Tả</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <textarea name="pDesc" class="form-control" id="about"
+                                    <textarea name="description" class="form-control" id="about"
                                               style="height: 80px"></textarea>
                                 </div>
                             </div>
@@ -225,16 +227,20 @@
                                 <div class="col-md-8 col-lg-9">
                                     <div class="pt-2">
                                         <label class="form-label" for="customFile">Chọn URL</label>
-                                        <input type="file" name="pImg" oninput="uploadImg()" class="form-control"
+                                        <input type="file" name="avatar" oninput="uploadImg()" class="form-control"
                                                id="customFile">
                                     </div>
                                 </div>
                             </div>
+                            <%if(text){%>
+                                <div class="text-center">
+                                    <p style="color: red;">Tên món ăn đã tồn tại trong thực đơn!</p>
+                                </div>
+                            <%}%>
                             <div class="text-center mt-4">
                                 <button type="submit" class="btn btn-primary">Thêm Món</button>
                             </div>
                         </form><!-- End Profile Edit Form -->
-
                     </div>
                 </div><!-- End Bordered Tabs -->
             </div>
