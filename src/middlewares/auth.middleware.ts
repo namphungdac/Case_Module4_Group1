@@ -14,7 +14,6 @@ passport.use(new Strategy(async function verify(username: string, password: stri
     return cb(null, user);
 }))
 
-// tslint:disable-next-line:only-arrow-functions
 passport.serializeUser(function(user: any, cb) {
     // tslint:disable-next-line:only-arrow-functions
     process.nextTick(function() {
@@ -22,7 +21,6 @@ passport.serializeUser(function(user: any, cb) {
     });
 });
 
-// tslint:disable-next-line:only-arrow-functions
 passport.deserializeUser(function(user: any, cb): any {
     // tslint:disable-next-line:only-arrow-functions
     process.nextTick(function(): any {
@@ -39,14 +37,10 @@ passport.use(new GoogleStrategy({
 
     async (request, accessToken, refreshToken, profile, done) => {
         try {
-            // console.log(profile, 'profile')
             let existingUser = await User.findOne({ 'google.id': profile.id });
-            // if user exists return the user
             if (existingUser) {
                 return done(null, existingUser);
             }
-            // if user does not exist create a new user
-            // console.log('Creating new user...');
             const newUser = new User({
                 google: {
                     id: profile.id,
@@ -55,7 +49,6 @@ passport.use(new GoogleStrategy({
                 password: null
             });
             await newUser.save();
-            // console.log(newUser, 'newUser')
             return done(null, newUser);
         } catch (error) {
             return done(null, false)
