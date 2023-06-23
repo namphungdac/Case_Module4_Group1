@@ -8,6 +8,7 @@
     <title>HKP Shop</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <base href="/">
 
     <!-- Favicons -->
     <link href="assets/img/png/logo-no-background.png" rel="icon">
@@ -192,32 +193,33 @@
                             <div class="row mb-3">
                                 <label for="pName" class="col-md-4 col-lg-3 col-form-label">Tên</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="name" type="text" class="form-control" id="pName" value="">
+                                    <input name="name" type="text" class="form-control" id="pName" value="<%= food.name %>">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="pType" class="col-md-4 col-lg-3 col-form-label">Loại</label>
                                 <div class="col-md-8 col-lg-9">
                                     <select class="form-select" name="type" aria-label="select-product">
-                                        <option selected value="user">Chọn Loại</option>
-                                        <option value="admin">Món Âu</option>
-                                        <option value="user">Món Nhật</option>
-                                        <option value="user">Món Nướng</option>
-                                        <option value="user">Món Chay</option>
+                                        <option selected value="<%= food.type %>" >Chọn Loại</option>
+                                        <option value="Món Âu">Món Âu</option>
+                                        <option value="Món Nhật">Món Nhật</option>
+                                        <option value="Món Nướng">Món Nướng</option>
+                                        <option value="Món Chay">Món Chay</option>
+                                        <option value="Đồ uống">Đồ uống</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="pPrice" class="col-md-4 col-lg-3 col-form-label">Price</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="price" type="text" class="form-control" id="pPrice" value="">
+                                    <input name="price" type="text" class="form-control" id="pPrice" value="<%= food.price %>">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="about" class="col-md-4 col-lg-3 col-form-label">Mô Tả</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <textarea name="pDesc" class="form-control" id="about"
-                                              style="height: 80px"></textarea>
+                                    <textarea name="description" class="form-control" id="about"
+                                              style="height: 80px" ><%= food.description%></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -225,8 +227,8 @@
                                 <div class="col-md-8 col-lg-9">
                                     <div class="pt-2">
                                         <label class="form-label" for="customFile">Chọn URL</label>
-                                        <input type="file" name="pImg" oninput="uploadImg()" class="form-control"
-                                               id="customFile">
+                                        <input type="file" name="avatar" oninput="uploadImg()" class="form-control"
+                                               id="customFile" value="<%= food.imgUrl %>">
                                     </div>
                                 </div>
                             </div>
