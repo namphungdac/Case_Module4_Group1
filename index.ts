@@ -2,9 +2,13 @@ import express from 'express';
 import bodyParser from "body-parser";
 import session from "express-session";
 import {MongoDB} from "./src/models/data-source";
-import fileUpload from "express-fileupload";
+import authRouter from "./src/routers/auth.router";
+import customerRouter from "./src/routers/customer.router";
+import adminRouter from "./src/routers/admin.router";
 import livereload from "connect-livereload";
-import { adminRouter } from './src/routers/admin.router';
+import passport from "passport";
+import fileUpload from "express-fileupload";
+
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -23,9 +27,28 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: false }
 }));
+
 app.use('/admin',adminRouter)
+app.use(livereload());
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/', (req,res) => {
+    res.render('home');
+});
+app.use('/auth',authRouter)
+app.use((req: any, res: any, next: any)=> {
+    if (req.isAuthenticated()) {
+        res.locals.userLogin = req.user
+        next();
+    } else {
+        res.redirect('/auth/login')
+    }
+})
+app.use('/customer', customerRouter);
+app.use('/admin', adminRouter);
 app.listen(3000, 'localhost', () => {
     console.log('Server is running at http://localhost:3000');
 })

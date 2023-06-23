@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <base href="/">
     <meta charset="utf-8">
     <title>Restoran - Bootstrap Restaurant Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -61,17 +60,8 @@
                         <a href="about.html" class="nav-item nav-link">Về Chúng Tôi</a>
                         <a href="contact.html" class="nav-item nav-link">Liên Hệ</a>
                     </div>
-                    <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="" class="circle nav-item mt-3">
-                            <img height="50" width="50" src="/upload/avatar/<%= customer.avatar %>" alt="Avatar">
-                        </a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><%= customer.username %></a>
-                            <div class="dropdown-menu m-0">
-                                <a href="team.html" class="dropdown-item">Thông Tin Cá Nhân</a>
-                                <a href="/auth/logout" class="dropdown-item">Đăng Xuất</a>
-                        </div>
-                    </div>
+                    <a href="/auth/login" class="btn btn-primary py-2 px-4 me-2">Đăng nhập</a>
+                    <a href="/auth/register" class="btn btn-primary py-2 px-4 ms-2">Đăng ký</a>
                 </div>
             </nav>
 
@@ -751,74 +741,13 @@
 
 
         <!-- Reservation Start -->
-        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="row g-0">
-                <!-- <div class="col-md-6">
-                    <div class="video">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/watch?v=xPPLbEFbCAo&ab_channel=Biteable" data-bs-target="#videoModal">
-                            <span></span>
-                        </button>
-                    </div>
-                </div> -->
-                <div class="col-md-12 bg-dark d-flex align-items-center">
-                    <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Đặt Bàn</h5>
-                        <h1 class="text-white mb-4">Đặt Bàn Online</h1>
-                        <form method="post" action="">
-                            <div class="row g-3">
-                                <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Tên</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="phone" placeholder="Your Phone">
-                                        <label for="phone">Số Điện Thoại</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Check-in</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select1">
-                                          <option value="1"> Dưới 5 Người</option>
-                                          <option value="2">6-10 Người</option>
-                                          <option value="3">10-15 Người</option>
-                                          <option value="3">Trên 15 Người</option>
-                                        </select>
-                                        <label for="select1">Số người</label>
-                                      </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Yêu Cầu Khác</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Đặt Ngay</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
 
         <!-- Team Start -->
         <div class="container-xxl pt-5 pb-3">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Thành Viên</h5>
-                    <h1 class="mb-5">Đầu Bếp Của Chúng Tôi</h1>
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
+                    <h1 class="mb-5">Our Master Chefs</h1>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -910,7 +839,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                                Thiết kế bởi: <a href="#">NgonNgonTeam</a>							
+                            Thiết kế bởi: <a href="#">NgonNgonTeam</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
@@ -923,8 +852,7 @@
             </div>
         </div>
         <!-- Footer End -->
-
-
+        
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>

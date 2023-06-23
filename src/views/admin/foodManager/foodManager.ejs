@@ -208,11 +208,11 @@
                     <td><%= food.description %></td>
                     <td>
                       <a
-                        onclick="return confirm('Are you sure you want to delete this staff?')"
-                        href="/admin/delete/<%= food.id%>"
+                        onclick="return confirm('Bạn đang thực hiện xóa món ăn này khỏi danh sách!')"
+                        href="/admin/deleteFood/<%= food.id%>"
                         class="btn btn-danger">Delete</a>
                       <a
-                        href="/admin/update/<%= food.id%>"
+                        href="/admin/updateFood/<%= food.id%>"
                         class="btn btn-primary">Update</a>
                     </td>
                   </tr>
