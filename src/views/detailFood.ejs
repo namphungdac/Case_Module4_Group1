@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>Restoran - Bootstrap Restaurant Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib1/animate/animate.min.css" rel="stylesheet">
+    <link href="lib1/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib1/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>NgonNgon</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="/customer/home" class="nav-item nav-link active">Trang Chủ</a>
+                        <a href="/menu" class="nav-item nav-link">Menu</a>
+                        <a href="/about" class="nav-item nav-link">Về Chúng Tôi</a>
+                    </div>
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="" class="circle nav-item mt-3">
+                            <img height="50" width="50" src="" alt="Avatar">
+                        </a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">abc</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="/user/info" class="dropdown-item">Thông Tin Cá Nhân</a>
+                                <a href="/auth/logout" class="dropdown-item">Đăng Xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container my-5 py-5">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h1 class="display-3 text-white animated slideInLeft">Thưởng Thức Những Bữa Ăn Tuyệt Vời</h1>
+                            <a href="/order" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Đặt Bàn Ngay</a>
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                            <img class="img-fluid" src="img/hero.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-12 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Chi tiết</h5>
+                        <h2 class="mb-4">Gà Chiên Kiểu Pháp</h2>
+                        <p class="mb-4">Nhà hàng NgonNgon không chỉ là nơi dừng chân quen thuộc của những thực khách Hà Thành mà còn được biết đến với nhiều du khách từ khắp nơi trên thế giới.</p>
+                        <p class="mb-4">Chúng tôi tin rằng, với sự cố gắng không ngừng nghỉ hơn 20 năm, sự tận tâm trong từng món ăn và phong cách phục vụ chuyên nghiệp, Nhà Hàng NgonNgon tự hào là một điểm sáng trên bản đồ ẩm thực Việt Nam và thế giới.</p>
+                        <!-- <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">20</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Năm</p>
+                                        <h6 class="text-uppercase mb-0">Kinh Nghiệm</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">30</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Đầu Bếp</p>
+                                        <h6 class="text-uppercase mb-0">Nổi Tiếng</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Xem Thêm</a> -->
+                    </div>
+                </div>
+                <div class="row g-5 align-items-center mt-4">
+                    <div class="col-lg-12">
+                        <div>
+                            <div>
+                                <h5 class="section-title ff-secondary text-start text-primary fw-normal my-3">Review</h5>
+                            </div>
+                            <div class="anime__review__item mb-2">
+                                <div class="anime__review__item__pic">
+                                    <img src="img/menu-5.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
+                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
+                                    "demons" LOL</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item mb-2">
+                                <div class="anime__review__item__pic">
+                                    <img src="img/menu-5.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
+                                    <p>Finally it came out ages ago</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item mb-2">
+                                <div class="anime__review__item__pic">
+                                    <img src="img/menu-5.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
+                                    <p>Where is the episode 15 ? Slow update! Tch</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item mb-2">
+                                <div class="anime__review__item__pic">
+                                    <img src="img/menu-5.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
+                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
+                                    "demons" LOL</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item mb-2">
+                                <div class="anime__review__item__pic">
+                                    <img src="img/menu-5.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
+                                    <p>Finally it came out ages ago</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item mb-2">
+                                <div class="anime__review__item__pic">
+                                    <img src="img/menu-5.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
+                          <p>Where is the episode 15 ? Slow update! Tch</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="anime__details__form">
+                <div>
+                    <h5 class="section-title ff-secondary text-start text-primary fw-normal my-3">Your Comment</h5>
+                </div>
+                  <form action="#">
+                      <textarea placeholder="Your Comment"></textarea>
+                      <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                  </form>
+              </div>
+          </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5 ">
+                    <div class="col-lg-6 col-md-12">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Liên hệ</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>44 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội, Việt Nam</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>ngonngon@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Mở Cửa</h4>
+                        <p class="text-light fw-normal">Thứ 2 - Thứ 7: 09AM - 09PM</p>
+                        <p class="text-light fw-normal">Chủ Nhật: 10AM - 08PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            Thiết kế bởi: <a href="#">NgonNgonTeam</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Help</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+</div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib1/wow/wow.min.js"></script>
+    <script src="lib1/easing/easing.min.js"></script>
+    <script src="lib1/waypoints/waypoints.min.js"></script>
+    <script src="lib1/counterup/counterup.min.js"></script>
+    <script src="lib1/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib1/tempusdominus/js/moment.min.js"></script>
+    <script src="lib1/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib1/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
