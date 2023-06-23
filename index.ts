@@ -33,7 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', (req,res) => {
-    res.render('home');
+    res.render('detailFood');
 });
 app.use('/auth',authRouter)
 app.use((req: any, res: any, next: any)=> {

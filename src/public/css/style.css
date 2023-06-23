@@ -530,44 +530,44 @@
 	margin-bottom: 0;
 } */
 
-.anime__review__item__text {
+.food__review__item__text {
 	overflow: hidden;
 	background: #e2e7e2;
 	padding: 18px 30px 16px 20px;
 	border-radius: 10px;
 }
 
-.anime__review__item__text h6 {
+.food__review__item__text h6 {
 	color: #090909;
 	font-weight: 700;
 	margin-bottom: 10px;
 }
 
-.anime__review__item__text h6 span {
+.food__review__item__text h6 span {
 	color: #b7b7b7;
 	font-weight: 400;
 }
 
-.anime__review__item__text p {
+.food__review__item__text p {
 	color: #6e6c6c;
 	line-height: 23px;
 	margin-bottom: 0;
 }
 
-.anime__review__item__text h6 span {
+.food__review__item__text h6 span {
     font-size: 12px;
 }
-.anime__review__item__text {
+.food__review__item__text {
     padding: 18px 20px 20px;
 }
 
-.anime__review__item__pic {
+.food__review__item__pic {
 	float: left;
 	margin-right: 20px;
 	position: relative;
 }
 
-.anime__review__item__pic:before {
+.food__review__item__pic:before {
 	position: absolute;
 	right: -30px;
 	top: 15px;
@@ -579,13 +579,13 @@
 	transform: rotate(45deg);
 }
 
-.anime__review__item__pic img {
+.food__review__item__pic img {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
 }
 
-.anime__details__form form textarea {
+.food__details__form form textarea {
 	width: 100%;
 	font-size: 15px;
 	color: #827e7e;
@@ -598,7 +598,7 @@
 	margin-bottom: 24px;
 }
 
-.anime__details__form form button {
+.food__details__form form button {
 	font-size: 11px;
 	color: #FFFFFF;
 	font-weight: 700;
@@ -624,3 +624,24 @@
 a.circle {
   color: transparent;
 } /* IE fix: removes blue border */	
+
+
+/* btnlike/dislike */
+.btn-ok{
+    cursor: pointer;
+    outline: 0;
+    color: #AAA;
+  
+  }
+  
+  .btn-ok:focus {
+    outline: none;
+  }
+  
+  .green{
+    color: green;
+  }
+  
+  .red{
+    color: red;
+  }
