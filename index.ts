@@ -9,7 +9,6 @@ import livereload from "connect-livereload";
 import passport from "passport";
 import fileUpload from "express-fileupload";
 
-
 const app = express();
 app.set('view engine', 'ejs');
 app.set ('views', './src/views');
@@ -29,8 +28,6 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
-
-app.use('/admin',adminRouter)
 app.use(livereload());
 app.use(passport.initialize());
 app.use(passport.session());

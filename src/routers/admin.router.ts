@@ -1,6 +1,6 @@
 import express from "express";
-import {homeController} from "../controllers/admincontrollers/home.controller";
-import { FoodController } from "../controllers/admincontrollers/food.controller";
+import {homeController} from "../controllers/admin.controller/home.controller";
+import { FoodController } from "../controllers/admin.controller/food.controller";
 const adminRouter = express.Router()
 adminRouter.get('/home', homeController.getHomePage);
 adminRouter.get('/createFood',FoodController.getAddFoodPage)
