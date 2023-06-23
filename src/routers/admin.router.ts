@@ -2,7 +2,10 @@ import express from "express";
 import {homeController} from "../controllers/admin.controller/home.controller";
 import { FoodController } from "../controllers/admin.controller/food.controller";
 import { UserController } from "../controllers/admin.controller/user.controller";
+import blockSwitchFromCusMiddleware from "../middlewares/blockSwitchFromCus.middleware";
+
 const adminRouter = express.Router()
+adminRouter.use(blockSwitchFromCusMiddleware);
 adminRouter.get('/home', homeController.getHomePage);
 adminRouter.get('/createFood',FoodController.getAddFoodPage)
 adminRouter.post('/createFood',FoodController.addFood)

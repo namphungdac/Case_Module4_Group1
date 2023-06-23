@@ -7,6 +7,7 @@ export interface IFood extends Document {
     description: String;
     rate: Object|null
     imgUrl: String
+
 }
 
 const foodSchema: Schema = new  Schema<IFood>({
