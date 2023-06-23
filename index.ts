@@ -35,7 +35,7 @@ app.use(passport.session());
 app.get('/', (req,res) => {
     res.render('detailFood');
 });
-app.use('/auth',authRouter)
+app.use('/auth',authRouter);
 app.use((req: any, res: any, next: any)=> {
     if (req.isAuthenticated()) {
         res.locals.userLogin = req.user
@@ -43,9 +43,9 @@ app.use((req: any, res: any, next: any)=> {
     } else {
         res.redirect('/auth/login')
     }
-})
+});
 app.use('/customer', customerRouter);
 app.use('/admin', adminRouter);
 app.listen(3000, 'localhost', () => {
     console.log('Server is running at http://localhost:3000');
-})
+});
