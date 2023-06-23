@@ -31,7 +31,7 @@ class AuthController {
     static async addUser(req: any, res: any) {
         let newUser = new User(req.body);
         await newUser.save();
-        res.redirect('/customer/home');
+        res.redirect('/auth/login');
     }
 }
 
