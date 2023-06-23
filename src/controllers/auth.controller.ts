@@ -3,6 +3,15 @@ import User from "../models/schemas/user.schema";
 class AuthController {
 
     static getLoginPage(req: any, res: any): any {
+      if(req.isAuthenticated()){
+            if(req.user.role=="user"){
+                return  res.redirect('/customer/home')
+            }else{
+                return res.redirect('/admin/home')
+            }
+            
+        }
+
         res.render('auth/login');
     }
 
