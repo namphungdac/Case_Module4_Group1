@@ -2,7 +2,7 @@ import {Schema, Document, model} from "mongoose";
 
 export interface IFood extends Document {
     name: String;
-    type: String;
+    type: Object;
     price: Number;
     description: String;
     rate: Object|null
@@ -12,7 +12,7 @@ export interface IFood extends Document {
 
 const foodSchema: Schema = new  Schema<IFood>({
     name: String,
-    type: String,
+    type: { type: Schema.Types.ObjectId, ref: "FoodType" },
     price: Number,
     description: String,
     rate: {type: Schema.Types.ObjectId, ref: "Rate"},

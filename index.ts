@@ -35,6 +35,10 @@ app.use(passport.session());
 app.get('/', (req,res) => {
     res.render('home');
 });
+app.get('/notFound', (req,res) => {
+    res.render('notFound');
+});
+
 app.use('/auth',authRouter);
 app.use((req: any, res: any, next: any)=> {
     if (req.isAuthenticated()) {
@@ -46,6 +50,11 @@ app.use((req: any, res: any, next: any)=> {
 });
 app.use('/customer', customerRouter);
 app.use('/admin', adminRouter);
+
+app.use((req, res) => {
+    res.redirect('/notFound');
+});
+
 app.listen(3000, 'localhost', () => {
     console.log('Server is running at http://localhost:3000');
 });
