@@ -1252,3 +1252,23 @@ h6 {
   width: 350px;
   text-align: center;
 }
+
+
+.btn-ok{
+  cursor: pointer;
+  outline: 0;
+  color: #AAA;
+
+}
+
+.btn-ok:focus {
+  outline: none;
+}
+
+.green{
+  color: green;
+}
+
+.red{
+  color: red;
+}

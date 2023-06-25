@@ -36,7 +36,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="/admin" class="logo d-flex align-items-center">
+        <a href="admin/home" class="logo d-flex align-items-center">
             <img src="assets/img/png/logo-no-background.png" alt="" style="zoom: 2">
             <span class="d-none d-lg-block ps-2" style="color: #FEA116">NgonNgon</span>
         </a>
@@ -55,13 +55,13 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/png/logo-no-background.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">{adminName1}</span>
+                    <img src="/upload/avatar/no-avatar.png" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">admin</span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>{adminName2}</h6>
+                        <h6>admin</h6>
                     </li>
 
                     <li>
@@ -89,7 +89,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="/admin">
+            <a class="nav-link " href="admin/home">
                 <i class="bi bi-grid"></i>
                 <span>Danh Mục</span>
             </a>
@@ -137,12 +137,12 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/userManager">
+                    <a href="/admin/tableManager">
                         <i class="bi bi-circle"></i><span>Danh Sách Bàn</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/userManager/addUser">
+                    <a href="/admin/addTable">
                         <i class="bi bi-circle"></i><span>Thêm Mới Bàn</span>
                     </a>
                 </li>

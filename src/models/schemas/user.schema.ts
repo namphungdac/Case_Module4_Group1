@@ -22,7 +22,7 @@ const userSchema: Schema = new  Schema<IUser>({
     },
     avatar: {
         type: String,
-        default: 'musk.jpeg'
+        default: 'no-avatar.png'
     },
     phoneNumber: String,
     google: {
