@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>HKP Shop</title>
+    <title>NgonNgon</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -37,7 +37,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="/admin" class="logo d-flex align-items-center">
+        <a href="admin/home" class="logo d-flex align-items-center">
             <img src="assets/img/png/logo-no-background.png" alt="" style="zoom: 2">
             <span class="d-none d-lg-block ps-2" style="color: #FEA116">NgonNgon</span>
         </a>
@@ -62,7 +62,7 @@
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>{adminName2}</h6>
+                        <h6><%= admin.username %></h6>
                     </li>
 
                     <li>
@@ -70,7 +70,7 @@
                     </li>
 
                 <li>
-                    <a class="dropdown-item d-flex align-items-center" href="/auth/logout">
+                    <a class="dropdown-item d-flex align-items-center" href="auth/logout">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Đăng Xuất</span>
                     </a>
@@ -90,7 +90,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="/admin">
+            <a class="nav-link " href="admin/home">
                 <i class="bi bi-grid"></i>
                 <span>Danh Mục</span>
             </a>
@@ -102,12 +102,12 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/foodManager">
+                    <a href="/admin/userManager">
                         <i class="bi bi-circle"></i><span>Danh Sách Tài Khoản</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/foodManager/addFood">
+                    <a href="/admin/addUser">
                         <i class="bi bi-circle"></i><span>Thêm Mới Tài Khoản</span>
                     </a>
                 </li>
@@ -138,12 +138,12 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/userManager">
+                    <a href="/admin/tableManager">
                         <i class="bi bi-circle"></i><span>Danh Sách Bàn</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/userManager/addUser">
+                    <a href="/admin/addTable">
                         <i class="bi bi-circle"></i><span>Thêm Mới Bàn</span>
                     </a>
                 </li>

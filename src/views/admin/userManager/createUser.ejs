@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>HKP Shop</title>
+    <title>NgonNgon</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <base href="/">
 
     <!-- Favicons -->
     <link href="assets/img/png/logo-no-background.png" rel="icon">
@@ -36,7 +37,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="/admin" class="logo d-flex align-items-center">
+        <a href="admin/home" class="logo d-flex align-items-center">
             <img src="assets/img/png/logo-no-background.png" alt="" style="zoom: 2">
             <span class="d-none d-lg-block ps-2" style="color: #FEA116">NgonNgon</span>
         </a>
@@ -55,13 +56,13 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/png/logo-no-background.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">{adminName1}</span>
+                    <img src="/upload/avatar/no-avatar.png" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">admin</span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>{adminName2}</h6>
+                        <h6>admin</h6>
                     </li>
 
                     <li>
@@ -69,7 +70,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="/login">
+                        <a class="dropdown-item d-flex align-items-center" href="auth/logout">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Đăng Xuất</span>
                         </a>
@@ -89,7 +90,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="/admin">
+            <a class="nav-link " href="admin/home">
                 <i class="bi bi-grid"></i>
                 <span>Danh Mục</span>
             </a>
@@ -101,12 +102,12 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/foodManager">
+                    <a href="/admin/userManager">
                         <i class="bi bi-circle"></i><span>Danh Sách Tài Khoản</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/foodManager/addFood">
+                    <a href="/admin/addUser">
                         <i class="bi bi-circle"></i><span>Thêm Mới Tài Khoản</span>
                     </a>
                 </li>
@@ -124,7 +125,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/foodManager/addFood">
+                    <a href="/admin/createFood">
                         <i class="bi bi-circle"></i><span>Thêm Mới Món Ăn</span>
                     </a>
                 </li>
@@ -137,12 +138,12 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/userManager">
+                    <a href="/admin/tableManager">
                         <i class="bi bi-circle"></i><span>Danh Sách Bàn</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/userManager/addUser">
+                    <a href="/admin/addTable">
                         <i class="bi bi-circle"></i><span>Thêm Mới Bàn</span>
                     </a>
                 </li>
@@ -178,7 +179,7 @@
                         <ul class="nav nav-tabs nav-tabs-bordered">
 
                             <li class="nav-item">
-                                <h3>Thêm Mới User</h3>
+                                <h3>Thêm Mới Món Ăn</h3>
                             </li>
                         </ul>
                         <div class="tab-content pt-2">
@@ -189,43 +190,34 @@
 
                         <!-- Profile Edit Form -->
                         <form action="" method="post">
-                            <!-- <div class="row mb-3">
-                                <label class="col-md-4 col-lg-3 col-form-label">Ảnh User</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <div class="pt-2">
-                                        <label class="form-label" for="customFile">Chọn URL</label>
-                                        <input type="file" name="pImg" oninput="uploadImg()" class="form-control"
-                                               id="customFile">
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="row mb-3">
-                                <label for="pName" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                                <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="username" type="text" class="form-control" id="pName" value="">
+                                    <input name="username" type="text" class="form-control" id="username" value="">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="pPrice" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                                <label for="password" class="col-md-4 col-lg-3 col-form-label">Password</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="password" type="text" class="form-control" id="pPrice" value="">
+                                    <input name="password" type="password" class="form-control" id="password" value="">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="pType" class="col-md-4 col-lg-3 col-form-label">Vai Trò</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <select class="form-select" name="role" aria-label="select-product">
-                                        <option selected value="user">Chọn Vai Trò</option>
+                                <label for="role" class="col-md-4 col-lg-3 col-form-label">Vai trò</label>
+                                    <select name="role" id="role">
+                                        <option value="user" selected>User</option>
                                         <option value="admin">Admin</option>
-                                        <option value="user">User</option>
                                     </select>
-                                </div>
                             </div>
+                            <%if(text){%>
+                                <div class="text-center">
+                                    <p style="color: red;">Tên user đã tồn tại trong danh sách!</p>
+                                </div>
+                            <%}%>
                             <div class="text-center mt-4">
                                 <button type="submit" class="btn btn-primary">Thêm User</button>
                             </div>
                         </form><!-- End Profile Edit Form -->
-
                     </div>
                 </div><!-- End Bordered Tabs -->
             </div>

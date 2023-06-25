@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>HKP Shop</title>
+    <title>NgonNgon</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <base href="/">
 
     <!-- Favicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="assets/img/png/logo-no-background.png" rel="icon">
     <link href="assets/img/png/logo-no-background.png" rel="apple-touch-icon">
 
@@ -37,7 +38,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="/admin" class="logo d-flex align-items-center">
+        <a href="admin/home" class="logo d-flex align-items-center">
             <img src="assets/img/png/logo-no-background.png" alt="" style="zoom: 2">
             <span class="d-none d-lg-block ps-2" style="color: #FEA116">NgonNgon</span>
         </a>
@@ -56,13 +57,13 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/png/logo-no-background.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">{adminName1}</span>
+                    <img src="/upload/avatar/no-avatar.png" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">admin</span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>{adminName2}</h6>
+                        <h6>admin</h6>
                     </li>
 
                     <li>
@@ -70,7 +71,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="/login">
+                        <a class="dropdown-item d-flex align-items-center" href="auth/logout">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Đăng Xuất</span>
                         </a>
@@ -90,7 +91,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="/admin">
+            <a class="nav-link " href="admin/home">
                 <i class="bi bi-grid"></i>
                 <span>Danh Mục</span>
             </a>
@@ -102,12 +103,12 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/foodManager">
+                    <a href="/admin/userManager">
                         <i class="bi bi-circle"></i><span>Danh Sách Tài Khoản</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/foodManager/addFood">
+                    <a href="/admin/addUser">
                         <i class="bi bi-circle"></i><span>Thêm Mới Tài Khoản</span>
                     </a>
                 </li>
@@ -138,12 +139,12 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/userManager">
+                    <a href="/admin/tableManager">
                         <i class="bi bi-circle"></i><span>Danh Sách Bàn</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/userManager/addUser">
+                    <a href="/admin/addTable">
                         <i class="bi bi-circle"></i><span>Thêm Mới Bàn</span>
                     </a>
                 </li>
@@ -167,61 +168,109 @@
 </aside><!-- End Sidebar-->
 
 <main id="main" class="main">
-
-      <div class="card mt-2">
+    <a class="btn btn-primary" href="/admin/createFood"><i class="fa-solid fa-plus"></i></a>
+    <div class="card mt-2">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <div>
-            <form action method="post" id="formSize">
-              <select name="size" id="size_page" onchange="submitForm()">
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-              <label for="size_page">Items/Page</label>
-            </form>
-          </div>
-          <div><h3>Danh sách món ăn</h2></div>
-          <div><b>Total: <%= total %></div>
+            <div>
+                <form action method="post" id="formSize">
+                    <select name="size" id="size_page" onchange="submitForm()">
+                        <option value="<%= limit %>" selected><%= limit %></option>
+                        <% let arr = [3, 5, 10]
+                        arr.forEach(item => {
+                        if (item != limit) {%>
+                        <option value="<%= item %>"><%= item %></option>
+                        <%}});%>
+                    </select>
+                <label for="size_page">SL/Trang &lpar;Tổng : <%= total %>&rpar;</label>
+                </form>
+            </div>
+            <div class="fs-4"><span><b>Danh Sách Món Ăn</b></span></div>
+            <div>
+                <form class="form-inline my-2 my-lg-0 d-flex justify-content-end" method="get">
+                    <input class="form-control mr-sm-2 w-75 " type="search" placeholder="Tìm kiếm" aria-label="Search" name="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
         </div>
-        <div class="card-body text-center">
-          <table
-            class="table table-striped table-bordered table-hover text-center align-middle">
-            <tr>
-              <th>#</th>
-              <th>avatar</th>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Price</th>
-              <th>Description</th>
-              <th>Options</th>
 
-              </tr>
-           <% foods.forEach((food,index)=>{ %>
-                <tr>
-
-                    <th><%= index + 1%></th>
-                    <td class="col-1">
-                        <img src="<%= food.imgUrl %>" class="img-fluid" alt="ảnh">
-                    </td>
-                    <td><%= food.name %></td>
-                    <td><%= food.type %></td>
-                    <td><%= food.price %></td>
-                    <td><%= food.description %></td>
-                    <td>
-                      <a
-                        onclick="return confirm('Bạn đang thực hiện xóa món ăn này khỏi danh sách!')"
-                        href="/admin/deleteFood/<%= food.id%>"
-                        class="btn btn-danger">Delete</a>
-                      <a
-                        href="/admin/updateFood/<%= food.id%>"
-                        class="btn btn-primary">Update</a>
-                    </td>
-                  </tr>
-            <% }) %>
-          </table>
-        </div>
-      </div>
+        <div class="card-body text-center mt-4">
+            <% if (foods.length === 0) {%>
+                <tr><h5 class="mt-4 text-danger font-weight-bold">Không có dữ liệu!</h5></tr>
+            <% } else { %>
+            <table class="table table-striped table-bordered table-hover text-center align-middle">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th>#</th>
+                        <th>Ảnh</th>
+                        <th>Tên</th>
+                        <th>Loại</th>
+                        <th>Giá &lpar;VNĐ&rpar;</th>
+                        <!-- <th>Mô tả</th> -->
+                        <th>Lựa chọn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% foods.forEach((food,index)=>{ %>
+                        <tr style="font-weight: normal;" id="Food-<%= food._id %>">
+                            <th><%= index + 1%></th>
+                            <td class="col-1">
+                                <img src="<%= food.imgUrl %>" class="img-fluid" alt="ảnh">
+                            </td>
+                            <td><%= food.name %></td>
+                            <td><%= food.type.name %></td>
+                            <td><%= (food.price).toLocaleString() %></td>
+                            <!-- <td class="col-6 text-start"></td> -->
+                            <td>
+                                <button onclick="deleteItem('<%= food._id %>', 'Food')" class="btn btn-danger delete-btn-item">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                <a href="/admin/updateFood/<%= food._id%>?page=<%= pageCurrent %>&limit=<%= limit %>" class="btn btn-primary">
+                                    <i class="fa-sharp fa-solid fa-pencil"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <% if (pageCurrent === 1) {%>
+                        <li class="page-item d-none">
+                    <% } else { %>
+                        <li class="page-item">
+                    <% } %>
+                        <a class="page-link" id="prePage"
+                        href="/admin/foodManager?page=<%= pageCurrent - 1 %>&limit=<%= limit %>">Pre</a>
+                    </li>
+                    <% for (let i = 1; i <= totalPage; i++) {
+                        if (pageCurrent === i) {%>
+                            <li class="page-item active" aria-current="page">
+                        <% } else { %>
+                            <li class="page-item">
+                        <% } %>
+                                <a class="page-link" href="/admin/foodManager?page=<%= i %>&limit=<%= limit %>"><%= i %></a>
+                            </li>
+                        <% } %>
+                    <% if (pageCurrent === totalPage) {%>
+                        <li class="page-item d-none">
+                    <% } else { %>
+                        <li class="page-item">
+                    <% } %>
+                        <a class="page-link" id="afterPage"
+                        href="/admin/foodManager?page=<%= pageCurrent + 1 %>&limit=<%= limit %>">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="modal" id="deleteModal">
+                <div class="modal-content">
+                    <p><b>Bạn có chắc chắn muốn xóa?</b></p>
+                    <button type="button" class="btn btn-primary mb-2" id="confirmDelete">Có</button>
+                    <button type="button" class="btn btn-secondary" id="cancelDelete">Không</button>
+                </div>
+            </div>
+            <% } %> 
+        </div> 
     </div>
-
 </main>
 
 <!-- ======= Footer ======= -->
@@ -246,8 +295,9 @@
 <script src="assets/vendor/tinymce/tinymce.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
 
-<!-- Template Main JS File -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="js/index.js"></script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ export interface ITable extends Document {
     numberPerson: string;
     description: string;
     price: number;
+    status: string;
     imgUrl: string
 }
 
@@ -13,6 +14,7 @@ const tableSchema: Schema = new  Schema<ITable>({
     numberPerson: String,
     description: String,
     price: Number,
+    status: String,
     imgUrl: String
 });
 
