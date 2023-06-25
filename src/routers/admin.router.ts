@@ -14,6 +14,8 @@ adminRouter.get('/updateFood/:id',FoodController.getUpdateFoodPage)
 adminRouter.post('/updateFood/:id',FoodController.updateFood)
 adminRouter.get('/deleteFood/:id',FoodController.deleteFood)
 adminRouter.get('/createUser',UserController.getCreateUserPage)
+adminRouter.post('/createUser',UserController.createUser)
 adminRouter.get('/listUser',UserController.getListUser)
+
 export default adminRouter;
 

@@ -8,8 +8,27 @@ export class UserController {
          res.end(err.messages)
       }
    }
-   static async createUser(req:any,res:any){
-    
+   static async createUser(req: any, res: any) {
+      try {
+         const { username, password,phoneNumber,role } = req.body;
+         let userSearch = await User.findOne({ username: username })
+         if (!userSearch) {
+            let avatar = 'musk.jpeg'
+            let newUser = new User({
+               username: username,
+               password: password,
+               phoneNumber:phoneNumber,
+               role: role,
+               avatar: avatar
+            })
+            await newUser.save()
+            res.redirect('/admin/listUser')
+         } else {
+            res.render('admin/userManager/createUser')
+         }
+      } catch (err) {
+         console.log(err.messages);
+      }
    }
    static async getListUser(req: any, res: any) {
       try {
@@ -19,5 +38,5 @@ export class UserController {
          console.log(err.messages);
       }
    }
-   
+
 }

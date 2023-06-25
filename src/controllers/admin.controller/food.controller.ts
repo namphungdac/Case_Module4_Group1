@@ -25,7 +25,7 @@ export class FoodController {
                 if (req.files) {
                     let foodImg = req.files.avatar
                     foodImg.mv('./src/public/upload/' + foodImg.name);
-                    foodUrl = '/upload/' + foodImg.name
+                    foodUrl =  foodImg.name
                 }
                 let foodNew = new Food({
                     name: name,
@@ -67,7 +67,7 @@ export class FoodController {
         if (req.files) {
              let foodImg = req.files.avatar;
             foodImg.mv('./src/public/upload/' + foodImg.name);
-            food.imgUrl = '/upload/' + foodImg.name;
+            food.imgUrl =  foodImg.name;
         }
         await food.save()
         if(food){

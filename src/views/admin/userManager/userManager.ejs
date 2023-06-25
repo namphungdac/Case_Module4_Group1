@@ -194,8 +194,8 @@
             <% users.forEach((user,index)=>{ %>
                 <tr>
                     <th><%= index+1 %></th>
-                    <td>
-                        <img src="<%= user.avatar %>" class="img-fluid" alt="ảnh">
+                    <td class="col-1">
+                        <img src="upload/avatar/<%= user.avatar %>" class="img-fluid" alt="ảnh">
                     </td>
                     <td><%= user.username %></td>
                     <td><%= user.password %></td>
