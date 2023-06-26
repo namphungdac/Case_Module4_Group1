@@ -5,7 +5,7 @@ export interface IOrder extends Document {
     table: object;
     timeOrder: Date;
     checkin: Date;
-    typeOrder: object;
+    customerName: string;
 
 }
 
@@ -14,7 +14,7 @@ const orderSchema: Schema = new  Schema<IOrder>({
     table: {type: Schema.Types.ObjectId, ref: "Table"},
     timeOrder: Date,
     checkin: Date,
-    typeOrder: {type: Schema.Types.ObjectId, ref: "TypeOrder"}
+    customerName: String
 });
 
 const Order = model<IOrder>('Order', orderSchema);
