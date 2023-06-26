@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import session from "express-session";
 import {MongoDB} from "./src/models/data-source";
 import authRouter from "./src/routers/auth.router";
+import generalRouter from './src/routers/general.router';
 import customerRouter from "./src/routers/customer.router";
 import adminRouter from "./src/routers/admin.router";
 import livereload from "connect-livereload";
@@ -32,13 +33,13 @@ app.use(livereload());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req,res) => {
-    res.render('home');
-});
-app.get('/notFound', (req,res) => {
-    res.render('notFound');
-});
-
+// app.get('/', (req,res) => {
+//     res.render('home');
+// });
+// app.get('/notFound', (req,res) => {
+//     res.render('notFound');
+// });
+app.use(generalRouter);
 app.use('/auth',authRouter);
 app.use((req: any, res: any, next: any)=> {
     if (req.isAuthenticated()) {

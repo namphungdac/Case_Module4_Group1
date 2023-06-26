@@ -52,11 +52,11 @@ export class TableController {
             const { name, numberPerson, price, description } = req.body
             let tableSearch = await Table.findOne({ name: name })
             if (!tableSearch) {
-                let tableUrl = '/upload/avatar/no-avatar.png';
+                let tableUrl = 'no-avatar.png';
                 if (req.files) {
                     let tableImg = req.files.avatar
-                    tableImg.mv('./src/public/upload/' + tableImg.name);
-                    tableUrl = '/upload/' + tableImg.name
+                    tableImg.mv('./src/public/upload/table/' + tableImg.name);
+                    tableUrl = tableImg.name
                 }
                 let tableNew = new Table({
                     name: name,
