@@ -58,7 +58,7 @@ export class FoodController {
                 let foodUrl = 'no-avatar.png';
                 if (req.files) {
                     let foodImg = req.files.avatar
-                    foodImg.mv('./src/public/upload/food' + foodImg.name);
+                    foodImg.mv('./src/public/upload/food/' + foodImg.name);
                     foodUrl =  foodImg.name
                 }
                 let foodNew = new Food({
