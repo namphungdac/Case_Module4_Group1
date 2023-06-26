@@ -32,6 +32,11 @@ class AuthController {
         await newUser.save();
         res.redirect('/auth/login');
     }
+
+    static async getInfoUser(req: any, res: any) {
+        let id = req.session.passport.user.id;
+        return await User.findOne({_id: id})
+    }
 }
 
 export default AuthController;
