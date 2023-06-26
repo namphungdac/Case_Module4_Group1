@@ -1,10 +1,10 @@
-import User from "../../models/schemas/user.schema";
+import AuthController from "../auth.controller";
 
 export class homeController {
 
     static async getHomePage(req: any, res: any) {
-        let id = req.session.passport.user.id;
-        let customer = await User.findOne({_id: id})
+        let customer = await AuthController.getInfoUser(req, res);
+        console.log(customer)
         res.render('customer/home', {customer});
     }
 

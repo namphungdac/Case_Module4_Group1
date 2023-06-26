@@ -13,6 +13,8 @@ export class TableController {
 
     static async getListTable(req: any, res: any) {
         try {
+            console.log(req.session);
+            
             let size = 3;
             let page = req.query.page ? +req.query.page : 1;
 

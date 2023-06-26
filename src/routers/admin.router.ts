@@ -2,7 +2,7 @@ import express from "express";
 import {homeController} from "../controllers/admin.controller/home.controller";
 import { FoodController } from "../controllers/admin.controller/food.controller";
 import { TableController } from "../controllers/admin.controller/table.controller";
-import blockSwitchFromCusMiddleware from "../middlewares/blockSwitchFromCus.middleware";
+import blockSwitchFromCusMiddleware from "../middlewares/blockSwitchFromCustomer";
 
 const adminRouter = express.Router()
 adminRouter.use(blockSwitchFromCusMiddleware);
