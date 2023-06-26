@@ -55,10 +55,10 @@ export class FoodController {
             const { name, type, price, description } = req.body
             let foodSearch = await Food.findOne({ name: name })
             if (!foodSearch) {
-                let foodUrl = '/upload/avatar/no-avatar.png';
+                let foodUrl = 'no-avatar.png';
                 if (req.files) {
                     let foodImg = req.files.avatar
-                    foodImg.mv('./src/public/upload/' + foodImg.name);
+                    foodImg.mv('./src/public/upload/food' + foodImg.name);
                     foodUrl =  foodImg.name
                 }
                 let foodNew = new Food({
