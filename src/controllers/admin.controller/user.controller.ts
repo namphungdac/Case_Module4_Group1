@@ -3,7 +3,7 @@ import User from "../../models/schemas/user.schema";
 export class UserController {
    static async getCreateUserPage(req: any, res: any) {
       try {
-         await res.render('admin/userManager/createUser')
+         await res.render('admin/userManager/createUser',{text:false})
       } catch (err) {
          res.end(err.messages)
       }
@@ -24,7 +24,7 @@ export class UserController {
             await newUser.save()
             res.redirect('/admin/listUser')
          } else {
-            res.render('admin/userManager/createUser')
+            res.render('admin/userManager/createUser',{text:true})
          }
       } catch (err) {
          console.log(err.messages);

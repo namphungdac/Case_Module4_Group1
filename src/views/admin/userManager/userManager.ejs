@@ -203,12 +203,9 @@
                     <td>
                       <a
                         onclick="return confirm('Are you sure you want to delete this staff?')"
-                        href="/delete"
+                        href="/admin/delete/<%= user.id >"
                         class="btn btn-danger">Delete</a>
-                      <a
-                        href="/update/"
-                        class="btn btn-primary">Update</a>
-                    </td>
+                      </td>
                   </tr>
             <% }) %>
           </table>
