@@ -10,6 +10,7 @@
     <meta content="" name="keywords">
    <base href="/">
     <!-- Favicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="assets/img/png/logo-no-background.png" rel="icon">
     <link href="assets/img/png/logo-no-background.png" rel="apple-touch-icon">
 
@@ -180,6 +181,12 @@
           </div>
           <div><h3>Danh sách Khách hàng</h2></div>
           <div><b>Total: <%= total %></div>
+            <div>
+                <form class="form-inline my-2 my-lg-0 d-flex justify-content-end" method="get">
+                    <input class="form-control mr-sm-2 w-75 " type="search" placeholder="Tìm kiếm" aria-label="Search" name="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
         </div>
         <div class="card-body text-center">
           <table

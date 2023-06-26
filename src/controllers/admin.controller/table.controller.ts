@@ -55,7 +55,7 @@ export class TableController {
                 let tableUrl = 'no-avatar.png';
                 if (req.files) {
                     let tableImg = req.files.avatar
-                    tableImg.mv('./src/public/upload/table' + tableImg.name);
+                    tableImg.mv('./src/public/upload/table/' + tableImg.name);
                     tableUrl = tableImg.name
                 }
                 let tableNew = new Table({

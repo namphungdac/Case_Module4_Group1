@@ -24,7 +24,6 @@ const userSchema: Schema = new  Schema<IUser>({
         type: String,
         default: 'no-avatar.png'
     },
-    phoneNumber: String,
     google: {
         id: {
             type: String
