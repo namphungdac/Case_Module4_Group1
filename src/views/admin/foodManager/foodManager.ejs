@@ -103,12 +103,12 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/userManager">
+                    <a href="/admin/listUser">
                         <i class="bi bi-circle"></i><span>Danh Sách Tài Khoản</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/addUser">
+                    <a href="/admin/createUser">
                         <i class="bi bi-circle"></i><span>Thêm Mới Tài Khoản</span>
                     </a>
                 </li>
@@ -214,7 +214,7 @@
                         <tr style="font-weight: normal;" id="Food-<%= food._id %>">
                             <th><%= index + 1%></th>
                             <td class="col-1">
-                                <img src="<%= food.imgUrl %>" class="img-fluid" alt="ảnh">
+                                <img src="/upload/<%= food.imgUrl %>" class="img-fluid" alt="ảnh">
                             </td>
                             <td><%= food.name %></td>
                             <td><%= food.type.name %></td>
