@@ -1,6 +1,7 @@
 import express from "express";
 import {homeController} from "../controllers/admin.controller/home.controller";
 import { FoodController } from "../controllers/admin.controller/food.controller";
+import { UserController } from "../controllers/admin.controller/user.controller";
 import { TableController } from "../controllers/admin.controller/table.controller";
 import blockSwitchFromCusMiddleware from "../middlewares/blockSwitchFromCus.middleware";
 
@@ -27,6 +28,12 @@ adminRouter.get('/updateTable/:id',TableController.getUpdateTablePage)
 adminRouter.post('/updateTable/:id',TableController.updateTable)
 adminRouter.get('/deleteTable/:id',TableController.deleteTable)
 adminRouter.post('/changeStatus/:id',TableController.changeStatus)
+// UserManager
+adminRouter.get('/createUser',UserController.getCreateUserPage)
+adminRouter.post('/createUser',UserController.createUser)
+adminRouter.get('/listUser',UserController.getListUser)
+
+
 
 export default adminRouter;
 

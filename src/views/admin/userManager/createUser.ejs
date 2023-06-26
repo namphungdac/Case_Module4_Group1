@@ -9,6 +9,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
     <base href="/">
+    <base href="/">
 
     <!-- Favicons -->
     <link href="assets/img/png/logo-no-background.png" rel="icon">
@@ -71,6 +72,7 @@
 
                     <li>
                         <a class="dropdown-item d-flex align-items-center" href="auth/logout">
+                        <a class="dropdown-item d-flex align-items-center" href="auth/logout">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Đăng Xuất</span>
                         </a>
@@ -102,12 +104,12 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/admin/userManager">
+                    <a href="/admin/listUser">
                         <i class="bi bi-circle"></i><span>Danh Sách Tài Khoản</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/addUser">
+                    <a href="/admin/createUser">
                         <i class="bi bi-circle"></i><span>Thêm Mới Tài Khoản</span>
                     </a>
                 </li>
@@ -125,6 +127,7 @@
                     </a>
                 </li>
                 <li>
+                    <a href="/admin/createFood">
                     <a href="/admin/createFood">
                         <i class="bi bi-circle"></i><span>Thêm Mới Món Ăn</span>
                     </a>
@@ -190,16 +193,32 @@
 
                         <!-- Profile Edit Form -->
                         <form action="" method="post">
-                            <div class="row mb-3">
-                                <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                            <!-- <div class="row mb-3">
+                                <label class="col-md-4 col-lg-3 col-form-label">Ảnh User</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="username" type="text" class="form-control" id="username" value="">
+                                    <div class="pt-2">
+                                        <label class="form-label" for="customFile">Chọn URL</label>
+                                        <input type="file" name="pImg" oninput="uploadImg()" class="form-control"
+                                               id="customFile">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="row mb-3">
+                                <label for="pName" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="username" type="text" class="form-control" id="pName" value="">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="password" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                                <label for="pPrice" class="col-md-4 col-lg-3 col-form-label" >Password</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="password" type="password" class="form-control" id="password" value="">
+                                    <input name="password" type="password" class="form-control" id="pPrice" value="">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="pName" class="col-md-4 col-lg-3 col-form-label">NumberPhone</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="phoneNumber" type="text" class="form-control" id="pName" value="">
                                 </div>
                             </div>
                             <div class="row mb-3">
