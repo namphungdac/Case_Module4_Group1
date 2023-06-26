@@ -35,7 +35,7 @@ passport.use(new GoogleStrategy({
         passReqToCallback: true
     },
 
-    async (request, accessToken, refreshToken, profile, done) => {
+    async (request:any, accessToken:any, refreshToken:any, profile, done) => {
         try {
             let existingUser = await User.findOne({ 'google.id': profile.id });
             if (existingUser) {
