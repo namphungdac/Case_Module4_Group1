@@ -211,8 +211,8 @@
                 </thead>
                 <tbody>
                     <% orders.forEach((order,index)=>{ %>
-                        <tr style="font-weight: normal;" id="Order-<%= order._id %>">
-                            <th><a href="/admin/order-<%= index + 1%>/orderDetail">Order-<%= index + 1%></a></th>
+                        <tr style="font-weight: normal;" id="order-<%= order._id %>">
+                            <th class="text-break col-1"><a href="/admin/<%= order._id%>/orderDetail"><%= order._id%></a></th>
                             <td class="col-2">
                                 <div class="form-group">
                                     <select class="custom-select rounded shadow" id="order-table-<%= order._id %>">
@@ -266,7 +266,7 @@
                         <li class="page-item">
                     <% } %>
                         <a class="page-link" id="prePage"
-                        href="/admin/foodManager?page=<%= pageCurrent - 1 %>&limit=<%= limit %>">Pre</a>
+                        href="/admin/orderManager?page=<%= pageCurrent - 1 %>&limit=<%= limit %>">Pre</a>
                     </li>
                     <% for (let i = 1; i <= totalPage; i++) {
                         if (pageCurrent === i) {%>
@@ -274,7 +274,7 @@
                         <% } else { %>
                             <li class="page-item">
                         <% } %>
-                                <a class="page-link" href="/admin/foodManager?page=<%= i %>&limit=<%= limit %>"><%= i %></a>
+                                <a class="page-link" href="/admin/orderManager?page=<%= i %>&limit=<%= limit %>"><%= i %></a>
                             </li>
                         <% } %>
                     <% if (pageCurrent === totalPage) {%>
@@ -283,7 +283,7 @@
                         <li class="page-item">
                     <% } %>
                         <a class="page-link" id="afterPage"
-                        href="/admin/foodManager?page=<%= pageCurrent + 1 %>&limit=<%= limit %>">Next</a>
+                        href="/admin/orderManager?page=<%= pageCurrent + 1 %>&limit=<%= limit %>">Next</a>
                     </li>
                 </ul>
             </nav>
