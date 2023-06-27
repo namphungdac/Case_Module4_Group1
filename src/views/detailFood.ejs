@@ -89,16 +89,15 @@
                     <div class="col-lg-6">
                         <div class="row g-3">
                             <div class="col-12 text-center">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="upload/food/<%= food.imgUrl %>">
                             </div>
 
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Chi tiết</h5>
-                        <h2 class="mb-4">Gà Chiên Kiểu Pháp</h2>
-                        <p class="mb-4">Nhà hàng NgonNgon không chỉ là nơi dừng chân quen thuộc của những thực khách Hà Thành mà còn được biết đến với nhiều du khách từ khắp nơi trên thế giới.</p>
-                        <p class="mb-4">Chúng tôi tin rằng, với sự cố gắng không ngừng nghỉ hơn 20 năm, sự tận tâm trong từng món ăn và phong cách phục vụ chuyên nghiệp, Nhà Hàng NgonNgon tự hào là một điểm sáng trên bản đồ ẩm thực Việt Nam và thế giới.</p>
+                        <h2 class="mb-4"><%= food.name %></h2>
+                        <p class="mb-4"><%= food.description %></p>
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <span class="fs-4"><b>3</b></span>
