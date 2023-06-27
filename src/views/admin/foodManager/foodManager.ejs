@@ -194,11 +194,11 @@
         </div>
 
         <div class="card-body text-center mt-4">
-            <% if (foods.length === 0) {%>
+            <% if (foods.length === 0 && pageCurrent === 1) {%>
                 <tr><h5 class="mt-4 text-danger font-weight-bold">Không có dữ liệu!</h5></tr>
             <% } else { %>
             <table class="table table-striped table-bordered table-hover text-center align-middle">
-                <thead class="bg-dark text-white">
+                <thead class="bg-secondary text-white">
                     <tr>
                         <th>#</th>
                         <th>Ảnh</th>

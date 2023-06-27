@@ -227,7 +227,6 @@
                                     <label class="col-md-4 col-lg-3 col-form-label">Ảnh</label>
                                     <div class="col-md-8 col-lg-9">
                                         <div class="form-group">
-                                            <label for="image">thêm ảnh</label>
                                             <input type="text" class="form-control" id="image" name="image" placeholder="Image" hidden onchange="check()"/>
                                             <div id="imgDiv" multiple></div>
                                             <input type="file" id="fileButton" onchange="uploadImage(event)" multiple>
@@ -279,63 +278,8 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyAKEYYWbmZjoTrJLGVOsGFD2-J9OgL1cjw",
-            authDomain: "retaurent-b9061.firebaseapp.com",
-            projectId: "retaurent-b9061",
-            storageBucket: "retaurent-b9061.appspot.com",
-            messagingSenderId: "14912348705",
-            appId: "1:14912348705:web:af8146fe29ce9bf9d53960",
-            measurementId: "G-Q5XVQN2HNK"
-        };
-        firebase.initializeApp(firebaseConfig);
-    </script>
-
-    <script type="text/javascript">
-        function uploadImage(e) {
-            let fbBucketName = 'images';
-            let uploader = document.getElementById('uploader');
-            let files = e.target.files;  // Lấy danh sách các file đã được chọn
-            for (let i = 0; i < files.length; i++) {
-                let file = files[i];
-                let storageRef = firebase.storage().ref(`${fbBucketName}/${file.name}`);
-                let uploadTask = storageRef.put(file);
-                uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-                    function (snapshot) {
-                        console.log(snapshot);
-                        uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        switch (snapshot.state) {
-                            case firebase.storage.TaskState.PAUSED:
-                                break;
-                            case firebase.storage.TaskState.RUNNING:
-                                break;
-                        }
-                    }, function (error) {
-                        switch (error.code) {
-                            case 'storage/unauthorized':
-                                break;
-                            case 'storage/canceled':
-                                break;
-                            case 'storage/unknown':
-                                break;
-                        }
-                    }, async function () {
-                        let downloadURL = await uploadTask.snapshot.downloadURL;
-                        console.log(downloadURL);
-                        let imgDiv = document.getElementById('imgDiv');
-                        let imgElement = document.createElement('img');
-                        imgElement.setAttribute('height', '200px');
-                        imgElement.setAttribute('width', '200px');
-                        imgElement.setAttribute('src', downloadURL);
-                        imgDiv.appendChild(imgElement);
-                        let imageInput = document.getElementById('image');
-                        imageInput.value += downloadURL + ";"; check();
-                    });
-            }
-        }
-    </script>
+    <script src="js/firebase.js"></script>
+    
 </body>
 
 </html>
