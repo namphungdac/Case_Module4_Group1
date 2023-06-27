@@ -22,4 +22,13 @@ export class homeController {
         res.render('customer/home', { customer ,grils: grilFood, chays: chayFood, eus: euFood, javs: javFood, drinks: drinkFood,viet:vietStaff,long:longStaff,ducanh:ducanhStaff });
     }
 
+    static async getDetailFood(req: any, res: any) {
+        try {
+            const foodDetail = await Food.findOne({ _id: req.params.id })
+            res.render('detailFood', { food:foodDetail })
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
 }
