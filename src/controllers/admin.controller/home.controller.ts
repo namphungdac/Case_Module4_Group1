@@ -1,4 +1,3 @@
-import User from "../../models/schemas/user.schema";
 import AuthController from "../auth.controller";
 
 export class homeController {
