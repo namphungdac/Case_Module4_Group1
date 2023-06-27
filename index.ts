@@ -36,7 +36,7 @@ app.use(passport.session());
 
 app.use(generalRouter);
 app.use('/auth',authRouter);
-
+console.log(11)
 app.use('/customer', customerRouter);
 app.use('/admin', adminRouter);
 
