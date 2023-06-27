@@ -25,15 +25,29 @@ function deleteItem(idItem, nameItem) {
     });
 }
 
-function changeStatus(idItem) {
-    let status = document.getElementById(`status-${idItem}`).value;
+function changeStatus(idItem, nameItem) {
+    let status = document.getElementById(`status-${nameItem}-${idItem}`).value;
     const origin = location.origin;
     $.ajax({
         url: `${origin}/admin/changeStatus/${idItem}`,
         method: 'POST',
         data: {status: status},
         success: function (response) {
-            $(`#status-${idItem}`).value = status;
+            $(`#status-${nameItem}-${idItem}`).value = status;
+        }
+    })
+}
+
+function changeOrder(idItem) {
+    let table = document.getElementById(`order-table-${idItem}`).value;
+    const origin = location.origin;
+    $.ajax({
+        url: `${origin}/admin/changeOrder/${idItem}`,
+        method: 'POST',
+        data: {table: table},
+        success: function (response) {
+            // $(`#status-table-${idItem}`).value = response.tableName;
+            location.reload();
         }
     })
 }

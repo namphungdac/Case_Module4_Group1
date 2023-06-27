@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>NgonNgon</title>
+    <title>HKP Shop</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <base href="/">
@@ -179,7 +179,7 @@
                         <ul class="nav nav-tabs nav-tabs-bordered">
 
                             <li class="nav-item">
-                                <h3>Thêm Mới Bàn</h3>
+                                <h3>Cập Nhật Bàn</h3>
                             </li>
                         </ul>
                         <div class="tab-content pt-2">
@@ -189,46 +189,31 @@
                         </div>
 
                         <!-- Profile Edit Form -->
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="" method="post">
                             <div class="row mb-3">
-                                <label for="pName" class="col-md-4 col-lg-3 col-form-label">Tên</label>
+                                <label for="phone" class="col-md-4 col-lg-3 col-form-label">Số Điện Thoại</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="name" type="text" class="form-control" id="pName" value="">
+                                    <input name="phone" type="text" class="form-control" id="phone" value="<%= order.phone %>">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="pNum" class="col-md-4 col-lg-3 col-form-label">Số Người</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="numberPerson" type="number" class="form-control" id="pNum" value="">
+                                    <input name="numberPerson" type="number" class="form-control" id="pNum" value="<%= order.numberPerson %>">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="about" class="col-md-4 col-lg-3 col-form-label">Mô Tả</label>
+                                <label for="checkin" class="col-md-4 col-lg-3 col-form-label">Số Người</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <textarea name="description" class="form-control" id="about"
-                                              style="height: 80px"></textarea>
+                                    <input name="checkin" type="date" class="form-control" id="checkin" value="<%= order.checkin %>">
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-md-4 col-lg-3 col-form-label">Ảnh</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <div class="pt-2">
-                                        <label class="form-label" for="customFile">Chọn URL</label>
-                                        <input type="file" name="avatar" oninput="uploadImg()" class="form-control"
-                                               id="customFile">
-                                    </div>
-                                </div>
-                            </div>
-                            <%if(text){%>
-                                <div class="text-center">
-                                    <p style="color: red;">Tên bàn ăn đã tồn tại trong danh sách!</p>
-                                </div>
-                            <%}%>
                             <div class="text-center mt-4">
-                                <button type="submit" class="btn btn-primary">Thêm Bàn</button>
-                                <a href="/admin/tableManager" class="btn btn-secondary">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                                <a href="/admin/orderManager?page=<%= pageCurrent %>&limit=<%= limit %>" class="btn btn-secondary">Quay Lại</a>
                             </div>
                         </form><!-- End Profile Edit Form -->
+
                     </div>
                 </div><!-- End Bordered Tabs -->
             </div>
@@ -263,6 +248,7 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="js/index.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+import Order from "../../models/schemas/order.schema";
 import Table from "../../models/schemas/table.schema";
 
 export class TableController {
@@ -15,17 +16,16 @@ export class TableController {
         try {
             let size = 3;
             let page = req.query.page ? +req.query.page : 1;
-
             if (req.body.size) {
                 size = +req.body.size;
             } else if (req.query.limit) {
                 size = +req.query.limit;
             }
-            let search = await TableController.searchTable(req, res);
+            let search = await TableController.searchTable(req, res)
             const tables = await Table.find({$or: search});
             let totalPage = Math.ceil(tables.length / size);
             let offset = (page - 1) * size;
-            const listTable = await Table.find({$or: search}).limit(size).skip(offset);
+            let listTable = await Table.find({$or: search}).limit(size).skip(offset);
             await res.render('admin/tableManager/tableManager', { tables: listTable, total: tables.length, pageCurrent: page, totalPage:totalPage, limit:size })
         } catch(err) {
             console.log(err.messages);
@@ -49,10 +49,10 @@ export class TableController {
 
     static async addTable(req: any, res: any) {
         try {
-            const { name, numberPerson, price, description } = req.body
+            const { name, numberPerson, description } = req.body
             let tableSearch = await Table.findOne({ name: name })
             if (!tableSearch) {
-                let tableUrl = 'no-avatar.png';
+                let tableUrl = 'table-normal.jpg';
                 if (req.files) {
                     let tableImg = req.files.avatar
                     tableImg.mv('./src/public/upload/table/' + tableImg.name);
@@ -61,10 +61,8 @@ export class TableController {
                 let tableNew = new Table({
                     name: name,
                     numberPerson: numberPerson,
-                    price: price,
                     description: description,
-                    imgUrl: tableUrl,
-                    status: 'Trống'
+                    imgUrl: tableUrl
                 })
                 await tableNew.save()
                 res.redirect('/admin/tableManager')
@@ -101,13 +99,12 @@ export class TableController {
                 if (table) {
                     table.name = req.body.name;
                     table.numberPerson = req.body.numberPerson;
-                    table.price = req.body.price;
                     table.description = req.body.description;
-                    table.status = req.body.status;
+                    table.condition = req.body.condition;
                     if (req.files) {
                         let tableImg = req.files.avatar;
-                        tableImg.mv('./src/public/upload/' + tableImg.name);
-                        table.imgUrl = '/upload/' + tableImg.name;
+                        tableImg.mv('./src/public/upload/table/' + tableImg.name);
+                        table.imgUrl = tableImg.name;
                     }
                     await table.save();
                     return res.redirect(`/admin/tableManager?page=${page}&limit=${limit}`)
@@ -135,19 +132,19 @@ export class TableController {
 
     static async changeStatus(req, res) {
         try {
-            let status = req.body.status;
-            let table = await Table.findOne({_id: req.params.id});
-            if (table) {
-                table.status = status;
-                await table.save();
+            let status = req.body.status;   
+            let order = await Table.findOne({_id: req.params.id});
+            if (order) {
+                order.status = status;
+                await order.save();
                 return res.json({
                     status: "success",
-                    message: "Table change status success",
+                    message: "Order change status success",
                 })
             } else {
                 res.render('notFound');
             }
-        } catch(err) {
+        } catch (err) {
             console.log(err.messages);
         }
     }
