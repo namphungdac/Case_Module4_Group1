@@ -13,7 +13,7 @@ export class UserController {
          const { username, password, phoneNumber, role } = req.body;
          let userSearch = await User.findOne({ username: username })
          if (!userSearch) {
-            let avatar = 'musk.jpeg'
+            let avatar = 'no-avatar.png'
             let newUser = new User({
                username: username,
                password: password,
@@ -32,17 +32,16 @@ export class UserController {
    }
    static async getListUser(req: any, res: any) {
       try {
-         let search = await UserController.searchUser(req, res);
-         const ListUser = await User.find({$or:search})
+         const search = await UserController.searchUser(req, res)
+         const ListUser = await User.find({ $or: search })
          await res.render('admin/userManager/userManager', { users: ListUser, total: ListUser.length })
       } catch (err) {
          console.log(err.messages);
       }
    }
-
    static async searchUser(req: any, res: any) {
       let queryName = {};
-      let queryRole = {};
+      let queryRole = {}
       if (req.query.search) {
          let search = req.query.search;
          queryName = {
