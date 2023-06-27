@@ -54,18 +54,13 @@ export class FoodController {
             const { name, type, price, description } = req.body
             let foodSearch = await Food.findOne({ name: name })
             if (!foodSearch) {
-                let foodUrl = 'food-normal.jpg';
-                if (req.files) {
-                    let foodImg = req.files.avatar
-                    foodImg.mv('./src/public/upload/food/' + foodImg.name);
-                    foodUrl =  foodImg.name
-                }
+                const foodUrl = req.body.image.slice(0, -1).split(';')
                 let foodNew = new Food({
                     name: name,
                     type: type,
                     price: price,
                     description: description,
-                    imgUrl: foodUrl
+                    imgUrl: foodUrl[0]
                 })
                 await foodNew.save()
                 res.redirect('/admin/foodManager')
