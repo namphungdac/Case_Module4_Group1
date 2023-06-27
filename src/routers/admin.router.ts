@@ -22,19 +22,21 @@ adminRouter.post('/updateFood/:id', FoodController.updateFood)
 adminRouter.get('/deleteFood/:id', FoodController.deleteFood)
 
 // tableManager
-adminRouter.get('/addTable', TableController.getAddTablePage)
-adminRouter.post('/addTable', TableController.addTable)
-adminRouter.get('/tableManager', TableController.getListTable)
-adminRouter.post('/tableManager', TableController.getListTable)
-adminRouter.get('/updateTable/:id', TableController.getUpdateTablePage)
-adminRouter.post('/updateTable/:id', TableController.updateTable)
-adminRouter.get('/deleteTable/:id', TableController.deleteTable)
-
+adminRouter.get('/addTable',TableController.getAddTablePage)
+adminRouter.post('/addTable',TableController.addTable)
+adminRouter.get('/tableManager',TableController.getListTable)
+adminRouter.post('/tableManager',TableController.getListTable)
+adminRouter.get('/updateTable/:id',TableController.getUpdateTablePage)
+adminRouter.post('/updateTable/:id',TableController.updateTable)
+adminRouter.get('/deleteTable/:id',TableController.deleteTable)
+adminRouter.post('/changeStatus/:id',TableController.changeStatus)
 
 // UserManager
-adminRouter.get('/createUser', UserController.getCreateUserPage)
-adminRouter.post('/createUser', UserController.createUser)
-adminRouter.get('/listUser', UserController.getListUser)
+adminRouter.get('/createUser',UserController.getCreateUserPage)
+adminRouter.post('/createUser',UserController.createUser)
+adminRouter.get('/listUser',UserController.getListUser)
+adminRouter.get('/updateUser/:id',UserController.getUpdatePageUser)
+adminRouter.post('/updateUser/:id',UserController.updateUser)
 
 // OrderManager
 adminRouter.get('/orderManager', OrderController.getOrderList)

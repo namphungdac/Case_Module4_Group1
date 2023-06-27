@@ -10,14 +10,13 @@ export class UserController {
    }
    static async createUser(req: any, res: any) {
       try {
-         const { username, password, phoneNumber, role } = req.body;
+         const { username, password, role } = req.body;
          let userSearch = await User.findOne({ username: username })
          if (!userSearch) {
             let avatar = 'no-avatar.png'
             let newUser = new User({
                username: username,
                password: password,
-               phoneNumber: phoneNumber,
                role: role,
                avatar: avatar
             })
@@ -52,5 +51,31 @@ export class UserController {
          }
       }
       return [queryName, queryRole];
+   }
+   static async getUpdatePageUser(req: any, res: any) {
+      try {
+         const userSearch = await User.findOne({ _id: req.params.id })
+         if (userSearch) {
+            res.render('admin/userManager/updateUser', { user: userSearch, text: false })
+         }
+      } catch (err) {
+         console.log(err.message);
+      }
+   }
+   static async updateUser(req: any, res: any) {
+      try {
+         const user = await User.findOne({ _id: req.params.id })
+         if (user) {
+            user.username = req.body.username
+            user.password = req.body.password
+            user.role = req.body.role
+            await user.save()
+            return res.redirect('/admin/listUser')
+         } else {
+            res.render('notFound');
+         }
+      } catch (err) {
+         console.log(err.message);
+      }
    }
 }
