@@ -1,9 +1,9 @@
 import express from "express";
 import passport from "../middlewares/auth.middleware";
 import AuthController from "../controllers/auth.controller";
-
+import blockSwitchHomePageAfterLogin from "../middlewares/blockSwitchHomePageAfterLogin";
 const authRouter = express.Router();
-
+authRouter.use(blockSwitchHomePageAfterLogin)
 authRouter.get('/login', AuthController.getLoginPage);
 authRouter.post('/login', passport.authenticate('local', { session: true, failureRedirect: '/auth/login' }), AuthController.login);
 authRouter.get('/login/google', passport.authenticate('google', {scope: ['profile', 'email']}));

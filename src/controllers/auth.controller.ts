@@ -3,19 +3,11 @@ import User from "../models/schemas/user.schema";
 class AuthController {
 
     static getLoginPage(req: any, res: any): any {
-        if (!req.isAuthenticated()) {
-            res.render('auth/login');
-        } else {
-            if (req.user.role == "user"){
-                return res.redirect('/customer/home')
-            } else {
-                return res.redirect('/admin/home')
-            }
-        }
+        res.render('auth/login');
     }
 
     static async login(req: any, res: any) {
-        let user = await User.findOne(req.body);
+        let user = await User.findOne({_id: req.user._id});
         if (user.role === 'user') {
             res.redirect('/customer/home');
         } else {

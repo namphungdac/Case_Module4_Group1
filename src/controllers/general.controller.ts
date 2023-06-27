@@ -1,5 +1,6 @@
 
 export class GeneralController {
+
     static getHomePage(req: any, res: any) {
         res.render('home');
     };
