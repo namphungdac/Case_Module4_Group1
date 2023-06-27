@@ -8,6 +8,7 @@ const customerRouter = express.Router();
 customerRouter.use(blockSwitchFromAdminMiddleware);
 customerRouter.get('/home', homeController.getHomePage);
 customerRouter.get('/order', OrderController.getOrderPage);
+customerRouter.post('/order', OrderController.orderTable);
 
 
 export default customerRouter;

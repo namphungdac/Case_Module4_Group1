@@ -203,19 +203,13 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="pPrice" class="col-md-4 col-lg-3 col-form-label">Price</label>
+                                <label for="status" class="col-md-4 col-lg-3 col-form-label">Tình Trạng</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="price" type="number" class="form-control" id="pPrice" value="<%= table.price %>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="status" class="col-md-4 col-lg-3 col-form-label">Trạng Thái</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <select class="form-select" name="status" aria-label="select-product">
-                                        <option value="<%= table.status %>" selected><%= table.status %></option>
-                                        <% let arr = ['Trống', 'Đã Được Đặt', 'Đang Phục Vụ']
+                                    <select class="form-select" name="condition" aria-label="select-product">
+                                        <option value="<%= table.condition %>" selected><%= table.condition %></option>
+                                        <% let arr = ['Mới', 'Cần Sửa']
                                         arr.forEach(item => {
-                                        if (item != table.status) {%>
+                                        if (item != table.condition) {%>
                                         <option value="<%= item %>"><%= item %></option>
                                         <%}});%>
                                     </select>

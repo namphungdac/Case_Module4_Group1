@@ -6,10 +6,9 @@ export class FoodController {
     static async getAddFoodPage(req: any, res: any) {
         try {
             const foodTypes = await FoodType.find();
-            await res.render('admin/foodManager/createFood', { text: false, foodTypes: foodTypes })
+            res.render('admin/foodManager/createFood', { text: false, foodTypes: foodTypes })
         } catch (err) {
             console.log(err.messages);
-            res.render('notFound');
         }
     }
 
@@ -28,7 +27,7 @@ export class FoodController {
             let totalPage = Math.ceil(foods.length / size);
             let offset = (page - 1) * size;
             const listFood = await Food.find({$or: search}).populate({ path: "type", select: "name" }).limit(size).skip(offset);
-            await res.render('admin/foodManager/foodManager', { foods: listFood, total: foods.length, pageCurrent: page, totalPage:totalPage, limit:size })
+            res.render('admin/foodManager/foodManager', { foods: listFood, total: foods.length, pageCurrent: page, totalPage:totalPage, limit:size })
         } catch (err) {
             console.log(err.messages);
         }
@@ -55,7 +54,7 @@ export class FoodController {
             const { name, type, price, description } = req.body
             let foodSearch = await Food.findOne({ name: name })
             if (!foodSearch) {
-                let foodUrl = 'no-avatar.png';
+                let foodUrl = 'food-normal.jpg';
                 if (req.files) {
                     let foodImg = req.files.avatar
                     foodImg.mv('./src/public/upload/food/' + foodImg.name);
@@ -108,7 +107,7 @@ export class FoodController {
                     food.description=req.body.description
                     if (req.files) {
                         let foodImg = req.files.avatar;
-                        foodImg.mv('./src/public/upload/' + foodImg.name);
+                        foodImg.mv('./src/public/upload/food' + foodImg.name);
                         food.imgUrl = foodImg.name;
                     }
                     await food.save();
