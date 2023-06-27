@@ -17,7 +17,7 @@ passport.use(new Strategy(async function verify(username: string, password: stri
 passport.serializeUser(function(user: any, cb) {
     // tslint:disable-next-line:only-arrow-functions
     process.nextTick(function() {
-        cb(null, { id: user._id, username: user.username });
+        cb(null, { id: user._id, username: user.username , avatar:user.avatar, role:user.role });
     });
 });
 

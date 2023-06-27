@@ -15,7 +15,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -37,7 +39,8 @@
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -56,27 +59,38 @@
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="/customer/home" class="nav-item nav-link active">Trang Chủ</a>
-                        <a href="/menu" class="nav-item nav-link">Menu</a>
-                        <a href="/about" class="nav-item nav-link">Về Chúng Tôi</a>
-                    </div>
-                    <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="" class="circle nav-item mt-3">
-                            
-                        </a>
-                        <div class="nav-item dropdown">
-                            
-                            <div class="dropdown-menu m-0">
-                                <a href="/user/info" class="dropdown-item">Thông Tin Cá Nhân</a>
-                                <a href="auth/logout" class="dropdown-item">Đăng Xuất</a>
+                    <% if(locals.userLogin){ %>
+                        <div class="navbar-nav ms-auto py-0 pe-4">
+                            <a href="/customer/home" class="nav-item nav-link active">Trang Chủ</a>
+                            <a href="/menu" class="nav-item nav-link">Menu</a>
+                            <a href="/about" class="nav-item nav-link">Về Chúng Tôi</a>
                         </div>
-                    </div>
-                </div>
+                        <div class="navbar-nav ms-auto py-0 pe-4">
+                            <span class="circle nav-item mt-2">
+                                <img height="50" width="50" src="/upload/avatar/<%= locals.userLogin.avatar %>"
+                                    alt="Avatar">
+                            </span>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    <%= locals.userLogin.username %>
+                                </a>
+                                <div class="dropdown-menu m-0">
+                                    <a href="/user/info" class="dropdown-item">Thông Tin Cá Nhân</a>
+                                    <a href="auth/logout" class="dropdown-item">Đăng Xuất</a>
+                                </div>
+                            </div>
+                            <% }else{ %>
+                                <div class="navbar-nav ms-auto py-0 pe-4">
+                                    <a href="/" class="nav-item nav-link active">Trang Chủ</a>
+                                    <a href="/menu" class="nav-item nav-link">Menu</a>
+                                    <a href="/about" class="nav-item nav-link">Về Chúng Tôi</a>
+                                </div>
+                                <% } %>
+                        </div>
             </nav>
 
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
- 
+
             </div>
         </div>
         <!-- Navbar & Hero End -->
@@ -89,23 +103,31 @@
                     <div class="col-lg-6">
                         <div class="row g-3">
                             <div class="col-12 text-center">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="<%= food.imgUrl %>">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s"
+                                    src="<%= food.imgUrl %>">
                             </div>
 
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Chi tiết</h5>
-                        <h2 class="mb-4"><%= food.name %></h2>
-                        <p class="mb-4"><%= food.description %></p>
+                        <h2 class="mb-4">
+                            <%= food.name %>
+                        </h2>
+                        <p class="mb-4">
+                            <%= food.description %>
+                        </p>
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <span class="fs-4"><b>3</b></span>
-                                <button class="btn btn-lg btn-ok" id="green"><i class="fa fa-thumbs-up fa-xl" aria-hidden="true"></i></button>
+                                <button class="btn btn-lg btn-ok" id="green"><i class="fa fa-thumbs-up fa-xl"
+                                        aria-hidden="true"></i></button>
                                 <span class="fs-4"><b>5</b></span>
-                                <button class="btn btn-lg btn-ok" id="red"><i class="fa fa-thumbs-down fa-xl" aria-hidden="true"></i></button>
+                                <button class="btn btn-lg btn-ok" id="red"><i class="fa fa-thumbs-down fa-xl"
+                                        aria-hidden="true"></i></button>
                                 <span class="fs-4"><b>5</b></span>
-                                <a class="btn btn-lg btn-ok active" href="#tab-comment" ><i class="fa-regular fa-comment fa-xl"></i></a>
+                                <a class="btn btn-lg btn-ok active" href="#tab-comment"><i
+                                        class="fa-regular fa-comment fa-xl"></i></a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +136,8 @@
                     <div class="col-lg-12">
                         <div>
                             <div>
-                                <h5 class="section-title ff-secondary text-start text-primary fw-normal my-3">Review</h5>
+                                <h5 class="section-title ff-secondary text-start text-primary fw-normal my-3">Review
+                                </h5>
                             </div>
                             <div class="food__review__item mb-2">
                                 <div class="food__review__item__pic">
@@ -123,7 +146,7 @@
                                 <div class="food__review__item__text">
                                     <h6>Chris Curry - <span>1 Hour ago</span></h6>
                                     <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
+                                        "demons" LOL</p>
                                 </div>
                             </div>
                             <div class="food__review__item mb-2">
@@ -151,7 +174,7 @@
                                 <div class="food__review__item__text">
                                     <h6>Chris Curry - <span>1 Hour ago</span></h6>
                                     <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
+                                        "demons" LOL</p>
                                 </div>
                             </div>
                             <div class="food__review__item mb-2">
@@ -169,20 +192,21 @@
                                 </div>
                                 <div class="food__review__item__text">
                                     <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                          <p>Where is the episode 15 ? Slow update! Tch</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="food__details__form" id="tab-comment">
-                <div>
-                    <h5 class="section-title ff-secondary text-start text-primary fw-normal my-3">Your Comment</h5>
-                </div>
-                  <form action="" method="post">
-                      <textarea placeholder="Your Comment"></textarea>
-                      <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
-                  </form>
-              </div>
-          </div>
+                                    <p>Where is the episode 15 ? Slow update! Tch</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="food__details__form" id="tab-comment">
+                            <div>
+                                <h5 class="section-title ff-secondary text-start text-primary fw-normal my-3">Your
+                                    Comment</h5>
+                            </div>
+                            <form action="" method="post">
+                                <textarea placeholder="Your Comment"></textarea>
+                                <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,7 +219,8 @@
                 <div class="row g-5 ">
                     <div class="col-lg-6 col-md-12">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Liên hệ</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>44 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội, Việt Nam</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>44 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội,
+                            Việt Nam</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>ngonngon@gmail.com</p>
                         <div class="d-flex pt-2">
@@ -234,7 +259,7 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-</div>
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -254,20 +279,20 @@
         let btn1 = document.querySelector('#green');
         let btn2 = document.querySelector('#red');
 
-        btn1.addEventListener('click', function() {
-  
-        if (btn2.classList.contains('red')) {
-            btn2.classList.remove('red');
-        } 
-        this.classList.toggle('green');
-    });
+        btn1.addEventListener('click', function () {
 
-    btn2.addEventListener('click', function() {
-    if (btn1.classList.contains('green')) {
-        btn1.classList.remove('green');
-    } 
-    this.classList.toggle('red');
-    });
+            if (btn2.classList.contains('red')) {
+                btn2.classList.remove('red');
+            }
+            this.classList.toggle('green');
+        });
+
+        btn2.addEventListener('click', function () {
+            if (btn1.classList.contains('green')) {
+                btn1.classList.remove('green');
+            }
+            this.classList.toggle('red');
+        });
     </script>
 </body>
 
