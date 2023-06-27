@@ -32,6 +32,8 @@ adminRouter.post('/changeStatus/:id',TableController.changeStatus)
 adminRouter.get('/createUser',UserController.getCreateUserPage)
 adminRouter.post('/createUser',UserController.createUser)
 adminRouter.get('/listUser',UserController.getListUser)
+adminRouter.get('/updateUser/:id',UserController.getUpdatePageUser)
+adminRouter.post('/updateUser/:id',UserController.updateUser)
 
 
 

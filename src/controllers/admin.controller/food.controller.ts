@@ -108,7 +108,7 @@ export class FoodController {
                     food.description=req.body.description
                     if (req.files) {
                         let foodImg = req.files.avatar;
-                        foodImg.mv('./src/public/upload/' + foodImg.name);
+                        foodImg.mv('./src/public/upload/food' + foodImg.name);
                         food.imgUrl = foodImg.name;
                     }
                     await food.save();
