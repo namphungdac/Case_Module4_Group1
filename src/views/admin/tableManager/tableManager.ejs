@@ -204,9 +204,9 @@
                         <th>Ảnh</th>
                         <th>Tên</th>
                         <th>Số người</th>
-                        <th>Giá &lpar;VNĐ&rpar;</th>
                         <th>Mô tả</th>
-                        <th>Trạng thái</th>
+                        <th>Tình Trạng</th>
+                        <th>Trạng Thái</th>
                         <th>Lựa chọn</th>
                     </tr>
                 </thead>
@@ -219,22 +219,9 @@
                             </td>
                             <td><%= table.name %></td>
                             <td><%= table.numberPerson %></td>
-                            <td><%= (table.price).toLocaleString() %></td>
                             <td class="col-4"><%= table.description %></td>
-                            <td class="col-2">
-                                <div class="form-group">
-                                    <select class="custom-select rounded shadow" id="status-<%= table._id %>">
-                                        <option value="<%= table.status %>" selected><%= table.status %></option>
-                                        <% let arr = ['Trống', 'Đã Được Đặt', 'Đang Phục Vụ']
-                                        arr.forEach(item => {
-                                        if (item != table.status) {%>
-                                        <option value="<%= item %>"><%= item %></option>
-                                        <%}});%>
-                                    </select>
-                                    <button class="btn btn-secondary" onclick="changeStatus('<%= table._id %>')"><i class="fa-regular fa-floppy-disk"></i></button>
-                                </div>
-                            </td>
-                            <!-- <td class="col-6 text-start"></td> -->
+                            <td><%= table.condition %></td>
+                            <td><%= table.status %></td>
                             <td>
                                 <button onclick="deleteItem('<%= table._id %>', 'Table')" class="btn btn-danger delete-btn-item">
                                     <i class="fa-solid fa-trash-can"></i>
