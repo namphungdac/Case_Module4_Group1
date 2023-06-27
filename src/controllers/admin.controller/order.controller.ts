@@ -22,11 +22,47 @@ export class OrderController {
         } catch (err) {
             console.log(err.messages);
         }
+    }
+
+    static async searchOrderByDate(req: any, res: any) {
         
     }
 
     static async getUpdateOrderPage(req:any, res: any) {
-        
+        try {
+            let { page, limit } = req.query;
+            if (page && limit) {
+                const orderSearch = await Order.findOne({ _id: req.params.id });
+                if (orderSearch) {
+                    res.render('admin/orderManager/updateOrder', { order: orderSearch, pageCurrent: page, limit: limit })
+                }
+            } else {
+                res.render('notFound');
+            }
+        } catch(err) {
+            console.log(err.messages);
+        } 
+    }
+
+    static async updateOrder(req: any, res: any) {
+        try {
+            let { page, limit } = req.query;
+            if( page && limit) {
+                const order = await Order.findOne({ _id: req.params.id });
+                if (order) {
+                    order.phone = req.body.phone;
+                    order.numberPerson = req.body.numberPerson;
+                    order.checkin = req.body.checkin;
+                    await order.save();
+                    return res.redirect(`/admin/orderManager?page=${page}&limit=${limit}`)
+                } else res.render('notFound');
+            } else {
+                res.render('notFound');
+            }
+
+        } catch (err) {
+            console.log(err.messages);
+        }
     }
 
     static async changeTableAndStatus(req, res) {

@@ -40,9 +40,9 @@ adminRouter.post('/updateUser/:id',UserController.updateUser)
 
 // OrderManager
 adminRouter.get('/orderManager', OrderController.getOrderList)
-// adminRouter.get('/updateTable/:id', OrderController.getUpdateOrderPage)
-// adminRouter.post('/updateTable/:id', OrderController.updateOrder)
-adminRouter.get('/deleteTable/:id', OrderController.deleteOrder)
+adminRouter.get('/updateOrder/:id', OrderController.getUpdateOrderPage)
+adminRouter.post('/updateOrder/:id', OrderController.updateOrder)
+adminRouter.get('/deleteOrder/:id', OrderController.deleteOrder)
 adminRouter.post('/changeOrder/:id', OrderController.changeTableAndStatus)
 
 export default adminRouter;
