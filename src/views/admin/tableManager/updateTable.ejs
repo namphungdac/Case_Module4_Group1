@@ -225,10 +225,10 @@
                             <div class="row mb-3">
                                 <label class="col-md-4 col-lg-3 col-form-label">Ảnh</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <div class="pt-2">
-                                        <label class="form-label" for="customFile">Chọn URL</label>
-                                        <input type="file" name="avatar" oninput="uploadImg()" class="form-control"
-                                               id="customFile">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="image" name="image" placeholder="Image" hidden onchange="check()"/>
+                                        <div id="imgDiv" multiple></div>
+                                        <input type="file" id="fileButton" onchange="uploadImage(event)" multiple>
                                     </div>
                                 </div>
                             </div>
@@ -273,6 +273,8 @@
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 <script src="js/index.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script src="js/firebase.js"></script>
 
 </body>
 </html>

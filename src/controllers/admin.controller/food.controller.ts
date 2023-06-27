@@ -52,8 +52,8 @@ export class FoodController {
     static async addFood(req: any, res: any) {
         try {
             const { name, type, price, description } = req.body
-            let foodSearch = await Food.findOne({ name: name })
-            if (!foodSearch) {
+            let food= await Food.findOne({ name: name })
+            if (!food) {
                 const foodUrl = req.body.image.slice(0, -1).split(';')
                 let foodNew = new Food({
                     name: name,
@@ -96,15 +96,14 @@ export class FoodController {
             if( page && limit) {
                 const food = await Food.findOne({ _id: req.params.id }).populate({ path: "type", select: "name" })
                 if (food) {
+                    if (req.body.image) {
+                    let foodUrl = req.body.image.slice(0, -1).split(';')
+                        food.imgUrl = foodUrl[0]
+                    }
                     food.name=req.body.name
                     food.type=req.body.type
                     food.price=req.body.price
                     food.description=req.body.description
-                    if (req.files) {
-                        let foodImg = req.files.avatar;
-                        foodImg.mv('./src/public/upload/food' + foodImg.name);
-                        food.imgUrl = foodImg.name;
-                    }
                     await food.save();
                     return res.redirect(`/admin/foodManager?page=${page}&limit=${limit}`)
                 } else res.render('notFound');
