@@ -52,17 +52,12 @@ export class TableController {
             const { name, numberPerson, description } = req.body
             let tableSearch = await Table.findOne({ name: name })
             if (!tableSearch) {
-                let tableUrl = 'table-normal.jpg';
-                if (req.files) {
-                    let tableImg = req.files.avatar
-                    tableImg.mv('./src/public/upload/table/' + tableImg.name);
-                    tableUrl = tableImg.name
-                }
+                let tableUrl = req.body.image.slice(0, -1).split(';');
                 let tableNew = new Table({
                     name: name,
                     numberPerson: numberPerson,
                     description: description,
-                    imgUrl: tableUrl
+                    imgUrl: tableUrl[0]
                 })
                 await tableNew.save()
                 res.redirect('/admin/tableManager')
@@ -97,15 +92,14 @@ export class TableController {
             if( page && limit) {
                 const table = await Table.findOne({ _id: req.params.id });
                 if (table) {
+                    if (req.body.image) {
+                        let tableUrl = req.body.image.slice(0, -1).split(';')
+                        table.imgUrl = tableUrl[0]
+                    }
                     table.name = req.body.name;
                     table.numberPerson = req.body.numberPerson;
                     table.description = req.body.description;
                     table.condition = req.body.condition;
-                    if (req.files) {
-                        let tableImg = req.files.avatar;
-                        tableImg.mv('./src/public/upload/table/' + tableImg.name);
-                        table.imgUrl = tableImg.name;
-                    }
                     await table.save();
                     return res.redirect(`/admin/tableManager?page=${page}&limit=${limit}`)
                 } else res.render('notFound');
