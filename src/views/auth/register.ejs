@@ -71,6 +71,9 @@
                                             <div class="invalid-feedback">Bạn phải đồng ý điều khoản trước khi tạo tài khoản!</div>
                                         </div>
                                     </div>
+                                    <% if(text){ %>
+                                        <P style="color: red;">Tên tài khoản đã tồn tại</P>
+                                    <% } %>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100" type="submit">Tạo tài khoản</button>
                                     </div>
