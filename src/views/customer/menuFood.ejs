@@ -59,8 +59,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="/" class="nav-item nav-link active">Trang Chủ</a>
-                        <a href="/menu" class="nav-item nav-link">Menu</a>
+                        <a href="customer/home" class="nav-item nav-link active">Trang Chủ</a>
+                        <a href="customer/menu" class="nav-item nav-link">Menu</a>
                         <a href="customer/order" class="nav-item nav-link">Đặt Bàn</a>
                         <a href="customer/about" class="nav-item nav-link">Về Chúng Tôi</a>
                     </div>
@@ -69,183 +69,204 @@
                             <img height="50" width="50" src="upload/avatar/<%= locals.userLogin.avatar %>" alt="Avatar">
                         </span>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><%= locals.userLogin.username %></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <%= locals.userLogin.username %>
+                            </a>
                             <div class="dropdown-menu m-0">
                                 <a href="/user/info" class="dropdown-item">Thông Tin Cá Nhân</a>
                                 <a href="auth/logout" class="dropdown-item">Đăng Xuất</a>
+                            </div>
                         </div>
                     </div>
-    </div>
-    </nav>
+            </nav>
 
-    <div class="container-xxl py-5 bg-dark hero-header mb-5">
-        <div class="container text-center my-5 pt-5 pb-4">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Menu</h1>
-        </div>
-    </div>
-    </div>
-    <!-- Navbar & Hero End -->
-
-    <!-- Reservation Start -->
-    <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s" id="tab-order">
-        <div class="row g-0">
-
-        </div>
-    </div>
-    <!--  -->
-    
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-            <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món nướng</h2>
-        </div>
-        <div class="row mt-3 text-center">
-            <% grilFood.forEach(gril=>{ %>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="<%= gril.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="customer/detailFood/<%=gril._id %>" class="text-decoration-none">
-                                    <%= gril.name %>
-                                </a></h5>
-                            <p style="color: black"> Giá tiền:<%=(gril.price).toLocaleString() %> VND</p>
-                        </div>
-                    </div>
-                </div>
-                <% }) %>
-        </div>
-    </div>
-    <!--  -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-            <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món Chay</h2>
-        </div>
-        <div class="row mt-3 text-center">
-            <% chayFood.forEach(chay=>{ %>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="<%= chay.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="customer/detailFood/<%=chay._id %>" class="text-decoration-none">
-                                    <%= chay.name %>
-                                </a></h5>
-                            <p style="color: black"> Giá tiền:<%=(chay.price).toLocaleString() %> VND</p>
-                        </div>
-                    </div>
-                </div>
-                <% }) %>
-        </div>
-    </div>
-    <!--  -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-            <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món Âu</h2>
-        </div>
-        <div class="row mt-3 text-center">
-            <% euFood.forEach(eu=>{ %>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="<%= eu.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="customer/detailFood/<%=eu._id %>" class="text-decoration-none">
-                                    <%= eu.name %>
-                                </a></h5>
-                            <p style="color: black"> Giá tiền:<%=(eu.price).toLocaleString() %> VND</p>
-                        </div>
-                    </div>
-                </div>
-                <% }) %>
-        </div>
-    </div>
-    <!--  -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-            <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món Nhật</h2>
-        </div>
-        <div class="row mt-3 text-center">
-            <% javFood.forEach(jav=>{ %>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="<%= jav.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="customer/detailFood/<%=jav._id %>" class="text-decoration-none">
-                                    <%= jav.name %>
-                                </a></h5>
-                            <p style="color: black"> Giá tiền:<%=(jav.price).toLocaleString() %> VND</p>
-                        </div>
-                    </div>
-                </div>
-                <% }) %>
-        </div>
-    </div>
-    <!--  -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-            <h2 class="section-title ff-secondary text-start text-primary fw-normal">Đồ Uống</h2>
-        </div>
-        <div class="row mt-3 text-center">
-            <% drinkFood.forEach(drink=>{ %>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="<%= drink.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="customer/detailFood/<%=drink._id %>" class="text-decoration-none">
-                                    <%= drink.name %>
-                                </a></h5>
-                            <p style="color: black"> Giá tiền:<%=(drink.price).toLocaleString() %> VND</p>
-                        </div>
-                    </div>
-                </div>
-                <% }) %>
-        </div>
-    </div>
-    
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5 ">
-                <div class="col-lg-6 col-md-12">
-                    <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Liên hệ</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>44 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội, Việt
-                        Nam</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>ngonngon@gmail.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Mở Cửa</h4>
-                    <p class="text-light fw-normal">Thứ 2 - Thứ 7: 09AM - 09PM</p>
-                    <p class="text-light fw-normal">Chủ Nhật: 10AM - 08PM</p>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Menu</h1>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        Thiết kế bởi: <a href="#">Team1-C0223G1CodeGym</a>
+        <!-- Navbar & Hero End -->
+
+        <!-- Reservation Start -->
+        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s" id="tab-order">
+            <div class="row g-0">
+
+            </div>
+        </div>
+        <!--  -->
+
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món nướng</h2>
+            </div>
+            <div class="row mt-3 text-center">
+                <% grilFood.forEach(gril=>{ %>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <a href="customer/detailFood/<%=gril._id %>" class="text-decoration-none">
+                                <img src="<%= gril.imgUrl %>" class="card-img-top img-fluid wow zoomIn"
+                                    alt="ảnh món ăn">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="customer/detailFood/<%=gril._id %>"
+                                            class="text-decoration-none">
+                                            <%= gril.name %>
+                                        </a></h5>
+                                    <p style="color: black"> Giá tiền:<%=(gril.price).toLocaleString() %> VND</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Help</a>
+                    <% }) %>
+            </div>
+        </div>
+        <!--  -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món Chay</h2>
+            </div>
+            <div class="row mt-3 text-center">
+                <% chayFood.forEach(chay=>{ %>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <a href="customer/detailFood/<%=chay._id %>" class="text-decoration-none">
+                                <img src="<%= chay.imgUrl %>" class="card-img-top img-fluid wow zoomIn"
+                                    alt="ảnh món ăn">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="customer/detailFood/<%=chay._id %>"
+                                            class="text-decoration-none">
+                                            <%= chay.name %>
+                                        </a></h5>
+                                    <p style="color: black"> Giá tiền:<%=(chay.price).toLocaleString() %> VND</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+        <!--  -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món Âu</h2>
+            </div>
+            <div class="row mt-3 text-center">
+                <% euFood.forEach(eu=>{ %>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <a href="customer/detailFood/<%=eu._id %>" class="text-decoration-none">
+                                <img src="<%= eu.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="customer/detailFood/<%=eu._id %>"
+                                            class="text-decoration-none">
+                                            <%= eu.name %>
+                                        </a></h5>
+                                    <p style="color: black"> Giá tiền:<%=(eu.price).toLocaleString() %> VND</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+        <!--  -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h2 class="section-title ff-secondary text-start text-primary fw-normal">Món Nhật</h2>
+            </div>
+            <div class="row mt-3 text-center">
+                <% javFood.forEach(jav=>{ %>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <a href="customer/detailFood/<%=jav._id %>" class="text-decoration-none">
+                                <img src="<%= jav.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="customer/detailFood/<%=jav._id %>"
+                                            class="text-decoration-none">
+                                            <%= jav.name %>
+                                        </a></h5>
+                                    <p style="color: black"> Giá tiền:<%=(jav.price).toLocaleString() %> VND</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+        <!--  -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h2 class="section-title ff-secondary text-start text-primary fw-normal">Đồ Uống</h2>
+            </div>
+            <div class="row mt-3 text-center">
+                <% drinkFood.forEach(drink=>{ %>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <a href="customer/detailFood/<%= drink._id %>" class="text-decoration-none">
+                                <img src="<%= drink.imgUrl %>" class="card-img-top img-fluid wow zoomIn"
+                                    alt="ảnh món ăn">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="customer/detailFood/<%= drink._id %>"
+                                            class="text-decoration-none">
+                                            <%= drink.name %>
+                                        </a></h5>
+                                    <p style="color: black"> Giá tiền:<%=(drink.price).toLocaleString() %> VND</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5 ">
+                    <div class="col-lg-6 col-md-12">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Liên hệ</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>44 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội,
+                            Việt
+                            Nam</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>ngonngon@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Mở Cửa</h4>
+                        <p class="text-light fw-normal">Thứ 2 - Thứ 7: 09AM - 09PM</p>
+                        <p class="text-light fw-normal">Chủ Nhật: 10AM - 08PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            Thiết kế bởi: <a href="#">Team1-C0223G1CodeGym</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Help</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Footer End -->
+        <!-- Footer End -->
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
