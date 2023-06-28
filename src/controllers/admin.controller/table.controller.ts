@@ -1,4 +1,3 @@
-import Order from "../../models/schemas/order.schema";
 import Table from "../../models/schemas/table.schema";
 
 export class TableController {

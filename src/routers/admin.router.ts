@@ -44,6 +44,13 @@ adminRouter.get('/updateOrder/:id', OrderController.getUpdateOrderPage)
 adminRouter.post('/updateOrder/:id', OrderController.updateOrder)
 adminRouter.get('/deleteOrder/:id', OrderController.deleteOrder)
 adminRouter.post('/changeOrder/:id', OrderController.changeTableAndStatus)
+adminRouter.get('/:id/orderDetail', OrderController.getDetailOrderPage)
+adminRouter.post('/:id/selectFood', OrderController.selectFood)
+adminRouter.get('/selectFood', OrderController.getSelectFoodModal)
+adminRouter.get('/saveSubOrder/:id', OrderController.saveSubOrder)
+adminRouter.get('/createBill/:id', OrderController.createBill)
+adminRouter.get('/orderDone', OrderController.getOrderDonePage)
+
 
 export default adminRouter;
 

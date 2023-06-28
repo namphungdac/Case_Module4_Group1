@@ -26,6 +26,7 @@ export class OrderController {
                 table: null,
                 checkin,
                 customerName,
+                foods: [],
                 other
             })
             
