@@ -5,7 +5,8 @@ import Rate from "../models/schemas/rate.schemas";
 export class GeneralController {
 
     static async getHomePage(req: any, res: any) {
-        try {
+
+        try{
             if (!req.isAuthenticated()) {
                 const foodTypeGril = await FoodType.findOne({ name: "Món Nướng" })
                 const foodTypeChay = await FoodType.findOne({ name: "Món Chay" })
@@ -22,7 +23,7 @@ export class GeneralController {
                 const ducanhStaff = await User.findOne({ username: "Đức Anh" })
                 res.render('home', { grils: grilFood, chays: chayFood, eus: euFood, javs: javFood, drinks: drinkFood, viet: vietStaff, long: longStaff, ducanh: ducanhStaff })
             } else {
-                if (req.user.role == "user"){
+                if (req.user.role == "user") {
                     return res.redirect('/customer/home')
                 } else {
                     return res.redirect('/admin/home')
@@ -60,7 +61,6 @@ export class GeneralController {
             }
         }catch(err){
             console.log(err.message);
-
         }
     }
 
@@ -83,5 +83,4 @@ export class GeneralController {
             }
         }
     }
-
 }

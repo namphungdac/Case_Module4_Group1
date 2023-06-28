@@ -35,6 +35,7 @@ export class homeController {
         }
     }
 
+
     static async addRate(req: any, res: any) {
         let comment = req.body.comment;
         let customer = await AuthController.getInfoUser(req, res);

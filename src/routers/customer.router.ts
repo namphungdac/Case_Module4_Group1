@@ -14,4 +14,5 @@ customerRouter.get('/menu',homeController.getMenuPage)
 customerRouter.post('/detailFood/:id', homeController.addRate);
 
 
+
 export default customerRouter;
