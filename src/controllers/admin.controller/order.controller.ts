@@ -1,5 +1,8 @@
 import Table from "../../models/schemas/table.schema";
 import Order from "../../models/schemas/order.schema";
+import Food from "../../models/schemas/food.schema";
+import Bill from "../../models/schemas/bill.schema";
+import SubOrder from "../../models/schemas/subOrder.schema";
 
 export class OrderController {
     static async getOrderList(req:any, res: any) {
@@ -108,13 +111,76 @@ export class OrderController {
     }
 
     static async deleteOrder(req:any,res:any){
-        try{
+        try {
             await Order.deleteOne({ _id: req.params.id });
             return res.json({
                 status: "success",
                 message: "Order deleted successfully",
             })
-        } catch(err) {
+        } catch (err) {
+            console.log(err.messages);
+        }
+    }
+
+    static async getDetailOrderPage(req: any, res: any) {
+        try {
+            let arr = [];
+            let order = await Order.findOne({_id: req.params.id});
+            if (order.subOders.length !== 0) {
+                for (const item of order.subOders) {
+                    let subOrder = await SubOrder.findOne(item).populate({path: "food"});
+                    arr.push(subOrder)
+                }
+            }
+            
+            res.render('admin/orderManager/orderDetail', {order, arr, orderID: req.params.id})
+        } catch (err) {
+            console.log(err.messages);
+        }
+    }
+
+    static async getSelectFoodModal(req:any, res:any) {
+        try {
+            let foods = await Food.find();
+            return res.json({
+                status: "success",
+                message: "Order deleted successfully",
+                data: {foods}
+            })
+        } catch (err) {
+            console.log(err.messages);
+        }
+    }
+    
+    static async selectFood(req:any, res) {
+        try {
+            let orderID = req.params.id;
+            let foodID = req.body.food;
+            let food = await Food.findOne({_id: foodID})
+            let subOrder = new SubOrder({
+                food,
+                quantity: 0
+            });
+            await subOrder.save();
+            let order = await Order.findOne({_id: orderID});
+            order.subOders.push(subOrder);
+            await order.save()
+
+            res.redirect(`/admin/${orderID}/orderDetail`)
+        } catch (err) {
+            console.log(err.messages);
+        }
+    }
+
+    static async changeQuantityFood(req:any, res: any) {
+        try {
+            let subOrderID = req.params.id;
+            let quantity = req.body.quantity;
+            console.log(quantity);
+            
+            let subOrder = await SubOrder.findOne({_id: subOrderID});
+
+        } catch (err) {
             console.log(err.messages);
         }
     }

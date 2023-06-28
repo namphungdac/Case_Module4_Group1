@@ -212,7 +212,7 @@
                 <tbody>
                     <% orders.forEach((order,index)=>{ %>
                         <tr style="font-weight: normal;" id="Order-<%= order._id %>">
-                            <th class="col-1"><a href="/admin/<%= order._id%>/orderDetail"><%= order._id%></a></th>
+                            <th class="col-1"><a href="admin/<%= order._id%>/orderDetail"><%= order._id%></a></th>
                             <td class="col-2">
                                 <div class="form-group">
                                     <select class="custom-select rounded shadow" id="order-table-<%= order._id %>">

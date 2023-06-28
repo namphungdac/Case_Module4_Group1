@@ -10,6 +10,7 @@ export interface IOrder extends Document {
     customerName: string;
     cost: number | null;
     status: string;
+    subOders: any;
     other: string
 }
 
@@ -29,6 +30,7 @@ const orderSchema: Schema = new  Schema<IOrder>({
         type: String,
         default: 'Đang Chờ'
     },
+    subOders: [{ type: Schema.Types.ObjectId, ref: "SubOrder" }],
     other: {
         type: String,
         default: ''
