@@ -1,9 +1,11 @@
 import User from "../models/schemas/user.schema";
 import Food from "../models/schemas/food.schema";
 import FoodType from "../models/schemas/foodType.schema";
+import Rate from "../models/schemas/rate.schemas";
 export class GeneralController {
 
     static async getHomePage(req: any, res: any) {
+
         try{
             if (!req.isAuthenticated()) {
                 const foodTypeGril = await FoodType.findOne({ name: "Món Nướng" })
@@ -26,12 +28,10 @@ export class GeneralController {
                 } else {
                     return res.redirect('/admin/home')
                 }
-            }
+             }
         }catch(err){
             console.log(err.message);
-            
         }
-
     };
 
     static async getNotFoundPage(req: any, res: any) {
@@ -61,15 +61,17 @@ export class GeneralController {
             }
         }catch(err){
             console.log(err.message);
-            
         }
     }
 
     static async getDetailFood(req: any, res: any) {
         if (!req.isAuthenticated()) {
             try {
+                let listComment = await Rate.find({food: req.params.id}).populate({
+                    path: "user"
+                });
                 const foodDetail = await Food.findOne({ _id: req.params.id })
-                res.render('detailFood', { food: foodDetail })
+                res.render('detailFood', { food:foodDetail , listComment })
             } catch (err) {
                 console.log(err.message);
             }

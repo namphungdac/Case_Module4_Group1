@@ -2,6 +2,7 @@ import AuthController from "../auth.controller";
 import User from "../../models/schemas/user.schema";
 import Food from "../../models/schemas/food.schema";
 import FoodType from "../../models/schemas/foodType.schema";
+import Rate from "../../models/schemas/rate.schemas";
 
 export class homeController {
     static async getHomePage(req: any, res: any) {
@@ -24,11 +25,28 @@ export class homeController {
 
     static async getDetailFood(req: any, res: any) {
         try {
+            let listComment = await Rate.find({food: req.params.id}).populate({
+                path: "user"
+            });
             const foodDetail = await Food.findOne({ _id: req.params.id })
-            res.render('detailFood', { food:foodDetail })
+            res.render('detailFood', { food:foodDetail , listComment })
         } catch (err) {
             console.log(err.message);
         }
+    }
+
+
+    static async addRate(req: any, res: any) {
+        let comment = req.body.comment;
+        let customer = await AuthController.getInfoUser(req, res);
+        let food = await Food.findOne({ _id: req.params.id })
+        let newRate = new Rate({
+            comment: comment,
+            user: customer,
+            food: food
+        });
+        await newRate.save();
+        res.redirect(`/customer/detailFood/${req.params.id}`);
     }
 
     static async getMenuPage(req:any,res:any){

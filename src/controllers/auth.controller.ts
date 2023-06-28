@@ -34,7 +34,7 @@ class AuthController {
     }
 
     static async getInfoUser(req: any, res: any) {
-        let id = req.session.passport.user.id;
+        let id = req.user.id;
         return await User.findOne({_id: id})
     }
 }
