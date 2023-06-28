@@ -1,7 +1,6 @@
 import Table from "../../models/schemas/table.schema";
 import Order from "../../models/schemas/order.schema";
 import Food from "../../models/schemas/food.schema";
-import Bill from "../../models/schemas/bill.schema";
 import SubOrder from "../../models/schemas/subOrder.schema";
 
 export class OrderController {
@@ -16,10 +15,10 @@ export class OrderController {
                 size = +req.query.limit;
             }
             let tables = await Table.find();
-            let listOrder = await Order.find().populate({ path: "table", select: "name" }).sort({date: 1});
+            let listOrder = await Order.find({$or: [{status:'Đang Dùng'}, {status:'Đang Chờ'}]}).populate({ path: "table", select: "name" }).sort({date: 1});
             let totalPage = Math.ceil(listOrder.length / size);
             let offset = (page - 1) * size;
-            const orders = await Order.find().populate({ path: "table", select: "name" }).limit(size).skip(offset).sort({date: 1});
+            const orders = await Order.find({$or: [{status:'Đang Dùng'}, {status:'Đang Chờ'}]}).populate({ path: "table", select: "name" }).limit(size).skip(offset).sort({date: 1});
             
             res.render('admin/orderManager/orderManager', {orders, tables, total: listOrder.length, pageCurrent: page, totalPage:totalPage, limit:size})
         } catch (err) {
@@ -80,7 +79,7 @@ export class OrderController {
                         await tableFind.save();
                         order.table = null;
                     }
-                    order.status = "Đang Đợi";
+                    order.status = "Đang Chờ";
                     await order.save();
                 } else {
                     if (order.table !== null) {
@@ -172,16 +171,58 @@ export class OrderController {
         }
     }
 
-    static async changeQuantityFood(req:any, res: any) {
+    static async saveSubOrder(req:any, res: any) {
         try {
             let subOrderID = req.params.id;
-            let quantity = req.body.quantity;
-            console.log(quantity);
-            
+            let quantity = req.query.quantity;
             let subOrder = await SubOrder.findOne({_id: subOrderID});
-
+            subOrder.quantity = quantity;
+            await subOrder.save();
+            return res.json({
+                status: "success",
+                message: "Order deleted successfully",
+            })
         } catch (err) {
             console.log(err.messages);
         }
     }
+
+    static async createBill(req: any, res: any) {
+        try {
+            let orderID = req.params.id;
+            let totalMoney = req.query.totalMoney;
+            let order = await Order.findOne({_id: orderID});
+            let table = await Table.findOne({_id: order.table});
+            table.status = "Trống";
+            order.cost = totalMoney;
+            order.status = 'Đã Xong'
+            await table.save()
+            await order.save()
+            return res.json({
+                status: "success",
+                message: "Order deleted successfully",
+            })
+        } catch (err) {
+            console.log(err.messages);
+        }
+    }
+    static async getOrderDonePage (req:any, res:any) {
+        try {
+            let size = 3;
+            let page = req.query.page ? +req.query.page : 1;
+
+            if (req.body.size) {
+                size = +req.body.size;
+            } else if (req.query.limit) {
+                size = +req.query.limit;
+            }
+            let listOrderDone = await Order.find({status: "Đã Xong"}).populate({ path: "table", select: "name" });
+            let totalPage = Math.ceil(listOrderDone.length / size);
+            let offset = (page - 1) * size;
+            const orders = await Order.find({status: "Đã Xong"}).limit(size).skip(offset).populate({ path: "table", select: "name" });
+            res.render('admin/orderManager/orderDoneList', {orders, total: listOrderDone.length, pageCurrent: page, totalPage:totalPage, limit:size})
+        } catch (err) {
+            console.log(err.messages);
+        }
+    } 
 }

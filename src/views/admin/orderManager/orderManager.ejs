@@ -158,7 +158,12 @@
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="/admin/orderManager">
-                        <i class="bi bi-circle"></i><span>Danh Sách Đơn</span>
+                        <i class="bi bi-circle"></i><span>Danh Sách Đơn Chưa Xong</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/orderDone">
+                        <i class="bi bi-circle"></i><span>Danh Sách Đơn Đã Xong</span>
                     </a>
                 </li>
             </ul>
@@ -183,7 +188,7 @@
                 <label for="size_page">SL/Trang &lpar;Tổng : <%= total %>&rpar;</label>
                 </form>
             </div>
-            <div class="fs-4"><span><b>Danh Sách Order</b></span></div>
+            <div class="fs-4"><span><b>Danh Sách Đơn Chưa Xong</b></span></div>
             <div>
                 <form class="form-inline my-2 my-lg-0 d-flex justify-content-end" method="get">
                     <input class="form-control mr-sm-2 w-75 " type="date" placeholder="Tìm kiếm" aria-label="Search" name="date">
@@ -212,7 +217,11 @@
                 <tbody>
                     <% orders.forEach((order,index)=>{ %>
                         <tr style="font-weight: normal;" id="Order-<%= order._id %>">
-                            <th class="col-1"><a href="admin/<%= order._id%>/orderDetail"><%= order._id%></a></th>
+                            <% if (order.status !== "Đang Chờ") { %>
+                                <th class="col-1"><a href="admin/<%= order._id%>/orderDetail"><%= order._id%></a></th>
+                            <% } else { %>
+                                <th class="col-1"><%= order._id%></th>
+                            <% } %>
                             <td class="col-2">
                                 <div class="form-group">
                                     <select class="custom-select rounded shadow" id="order-table-<%= order._id %>">
@@ -247,12 +256,15 @@
                             <% } %>
                             <td><%= order.status %></td>
                             <td class="col-2">
-                                <button onclick="deleteItem('<%= order._id %>', 'Order')" class="btn btn-danger delete-btn-item">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                                <a href="/admin/updateOrder/<%= order._id%>?page=<%= pageCurrent %>&limit=<%= limit %>" class="btn btn-primary">
-                                    <i class="fa-sharp fa-solid fa-pencil"></i>
-                                </a>
+                                <% if (order.status === "Đang Chờ") { %>
+                                    <button onclick="deleteItem('<%= order._id %>', 'Order')" class="btn btn-danger delete-btn-item">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                    <a href="/admin/updateOrder/<%= order._id%>?page=<%= pageCurrent %>&limit=<%= limit %>" class="btn btn-primary">
+                                        <i class="fa-sharp fa-solid fa-pencil"></i>
+                                    </a>
+                                <% } %>
+
                             </td>
                         </tr>
                     <% }) %>

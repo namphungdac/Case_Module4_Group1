@@ -2,7 +2,6 @@ import {Schema, Document, model} from "mongoose";
 
 export interface IBill extends Document {
     order: Object;
-    foods: any;
     totalMoney: number;
     status: string
 }
