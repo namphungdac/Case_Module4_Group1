@@ -64,10 +64,17 @@
                         <a href="customer/order" class="nav-item nav-link">Đặt Bàn</a>
                         <a href="customer/about" class="nav-item nav-link">Về Chúng Tôi</a>
                     </div>
-                </div>
-                <a href="/auth/login" class="btn btn-primary py-2 px-4 me-2">Đăng nhập</a>
-                <a href="/auth/register" class="btn btn-primary py-2 px-4 ms-2">Đăng ký</a>
-        </div>
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <span class="circle nav-item mt-2">
+                            <img height="50" width="50" src="upload/avatar/<%= locals.userLogin.avatar %>" alt="Avatar">
+                        </span>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><%= locals.userLogin.username %></a>
+                            <div class="dropdown-menu m-0">
+                                <a href="/user/info" class="dropdown-item">Thông Tin Cá Nhân</a>
+                                <a href="auth/logout" class="dropdown-item">Đăng Xuất</a>
+                        </div>
+                    </div>
     </div>
     </nav>
 
@@ -97,7 +104,7 @@
                     <div class="card">
                         <img src="<%= gril.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="detailFood/<%=gril._id %>" class="text-decoration-none">
+                            <h5 class="card-title"><a href="customer/detailFood/<%=gril._id %>" class="text-decoration-none">
                                     <%= gril.name %>
                                 </a></h5>
                             <p style="color: black"> Giá tiền:<%=(gril.price).toLocaleString() %> VND</p>
@@ -118,7 +125,7 @@
                     <div class="card">
                         <img src="<%= chay.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="detailFood/<%=chay._id %>" class="text-decoration-none">
+                            <h5 class="card-title"><a href="customer/detailFood/<%=chay._id %>" class="text-decoration-none">
                                     <%= chay.name %>
                                 </a></h5>
                             <p style="color: black"> Giá tiền:<%=(chay.price).toLocaleString() %> VND</p>
@@ -139,7 +146,7 @@
                     <div class="card">
                         <img src="<%= eu.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="detailFood/<%=eu._id %>" class="text-decoration-none">
+                            <h5 class="card-title"><a href="customer/detailFood/<%=eu._id %>" class="text-decoration-none">
                                     <%= eu.name %>
                                 </a></h5>
                             <p style="color: black"> Giá tiền:<%=(eu.price).toLocaleString() %> VND</p>
@@ -160,7 +167,7 @@
                     <div class="card">
                         <img src="<%= jav.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="detailFood/<%=jav._id %>" class="text-decoration-none">
+                            <h5 class="card-title"><a href="customer/detailFood/<%=jav._id %>" class="text-decoration-none">
                                     <%= jav.name %>
                                 </a></h5>
                             <p style="color: black"> Giá tiền:<%=(jav.price).toLocaleString() %> VND</p>
@@ -181,7 +188,7 @@
                     <div class="card">
                         <img src="<%= drink.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="detailFood/<%=drink._id %>" class="text-decoration-none">
+                            <h5 class="card-title"><a href="customer/detailFood/<%=drink._id %>" class="text-decoration-none">
                                     <%= drink.name %>
                                 </a></h5>
                             <p style="color: black"> Giá tiền:<%=(drink.price).toLocaleString() %> VND</p>
