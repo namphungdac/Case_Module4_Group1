@@ -6,7 +6,7 @@ class AuthController {
         if (!req.isAuthenticated()) {
             res.render('auth/login');
         } else {
-            if (req.user.role == "user"){
+            if (req.user.role == "user") {
                 return res.redirect('/customer/home')
             } else {
                 return res.redirect('/admin/home')
@@ -24,18 +24,23 @@ class AuthController {
     }
 
     static getRegisterPage(req: any, res: any): any {
-        res.render('auth/register');
+        res.render('auth/register', { text: false });
     }
 
     static async addUser(req: any, res: any) {
-        let newUser = new User(req.body);
-        await newUser.save();
-        res.redirect('/auth/login');
+        const userExist = User.findOne({ username: req.body.username })
+        if (!userExist) {
+            let newUser = new User(req.body);
+            await newUser.save();
+            res.redirect('/auth/login');
+        }else{
+            res.render('auth/register', { text: true })
+        }
     }
 
     static async getInfoUser(req: any, res: any) {
-        let id = req.session.passport.user.id;
-        return await User.findOne({_id: id})
+        let id = req.user.id;
+        return await User.findOne({ _id: id })
     }
 }
 

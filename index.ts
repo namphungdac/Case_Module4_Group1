@@ -33,12 +33,6 @@ app.use(livereload());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/', (req,res) => {
-//     res.render('home');
-// });
-// app.get('/notFound', (req,res) => {
-//     res.render('notFound');
-// });
 app.use(generalRouter);
 app.use('/auth',authRouter);
 app.use((req: any, res: any, next: any)=> {

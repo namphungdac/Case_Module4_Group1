@@ -10,6 +10,9 @@ customerRouter.get('/home', homeController.getHomePage);
 customerRouter.get('/order', OrderController.getOrderPage);
 customerRouter.post('/order', OrderController.orderTable);
 customerRouter.get('/detailFood/:id', homeController.getDetailFood)
+customerRouter.get('/menu',homeController.getMenuPage)
+customerRouter.post('/detailFood/:id', homeController.addRate);
+
 
 
 export default customerRouter;
