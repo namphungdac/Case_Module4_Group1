@@ -121,7 +121,7 @@ export class FoodController {
             await Food.deleteOne({ _id: req.params.id });
             return res.json({
                 status: "success",
-                message: "Book deleted successfully",
+                message: "Food deleted successfully",
             })
         } catch(err) {
             console.log(err.messages);

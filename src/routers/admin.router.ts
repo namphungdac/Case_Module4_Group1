@@ -50,7 +50,7 @@ adminRouter.get('/selectFood', OrderController.getSelectFoodModal)
 adminRouter.get('/saveSubOrder/:id', OrderController.saveSubOrder)
 adminRouter.get('/createBill/:id', OrderController.createBill)
 adminRouter.get('/orderDone', OrderController.getOrderDonePage)
-
+adminRouter.get('/deletesubOrder/:id', OrderController.deleteSubOrder)
 
 export default adminRouter;
 

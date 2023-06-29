@@ -33,17 +33,17 @@ export class TableController {
 
     static async searchTable(req:any, res:any) {
         let queryNumber = {};
-        let queryName = {};
+        let queryStatus = {};
         if(req.query.search) {
             let search = req.query.search;
-            queryName = {
-                name: { $regex: search } 
+            queryStatus = {
+                status: { $regex: search } 
             }
             queryNumber = {
                 numberPerson: { $regex: search }
             }
         }
-        return [queryName, queryNumber];
+        return [queryStatus, queryNumber];
     }
 
     static async addTable(req: any, res: any) {
