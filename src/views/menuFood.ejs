@@ -94,9 +94,9 @@
         <div class="row mt-3 text-center">
             <% grilFood.forEach(gril=>{ %>
                 <div class="col-md-3 mb-3">
-                    <div class="card">
+                    <div  class="card">
                         <a href="detailFood/<%=gril._id %>" class="text-decoration-none">
-                            <img src="<%= gril.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
+                            <img src="<%= gril.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn" >
                             <div class="card-body">
                                 <h5 class="card-title"><a href="detailFood/<%=gril._id %>" class="text-decoration-none">
                                         <%= gril.name %>
@@ -119,7 +119,7 @@
                 <div class="col-md-3 mb-3">
                     <div class="card">
                         <a href="detailFood/<%=chay._id %>" class="text-decoration-none">
-                            <img src="<%= chay.imgUrl %>" class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
+                            <img src="<%= chay.imgUrl %>"  class="card-img-top img-fluid wow zoomIn" alt="ảnh món ăn">
                             <div class="card-body">
                                 <h5 class="card-title"><a href="detailFood/<%=chay._id %>" class="text-decoration-none">
                                         <%= chay.name %>
