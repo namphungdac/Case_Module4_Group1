@@ -23,18 +23,19 @@ class AuthController {
         }
     }
 
-    static getRegisterPage(req: any, res: any): any {
-        res.render('auth/register', { text: false });
+    static async getRegisterPage(req: any, res: any) {
+       await res.render('auth/register', { text: false });
     }
 
     static async addUser(req: any, res: any) {
-        const userExist = User.findOne({ username: req.body.username })
-        if (!userExist) {
+        const userExist =  await User.findOne({ username: req.body.username })
+        
+        if (userExist) {
+            res.render('auth/register', { text: true })
+        }else{
             let newUser = new User(req.body);
             await newUser.save();
             res.redirect('/auth/login');
-        }else{
-            res.render('auth/register', { text: true })
         }
     }
 
