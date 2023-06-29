@@ -209,7 +209,7 @@
                         <th>SĐT</th>
                         <th>Check-in</th>
                         <th>Số Người</th>
-                        <th>Số Tiền</th>
+                        <th>Số Tiền &lpar;VNĐ&rpar;</th>
                         <th>Trạng Thái</th>
                         <th>Lựa chọn</th>
                     </tr>
@@ -250,7 +250,7 @@
                             <td class="col-2"><%= (order.checkin).toLocaleString() %></td>
                             <td><%= order.numberPerson %></td>
                             <% if(order.cost !== null) {%>
-                            <td><%= order.cost %></td>
+                            <td><%= (order.cost).toLocaleString() %></td>
                             <% } else {%>
                                 <td>0</td>
                             <% } %>

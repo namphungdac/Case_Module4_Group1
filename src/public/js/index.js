@@ -6,7 +6,7 @@ function submitForm() {
     document.getElementById("form-select-food").submit();
 }
 
-function deleteItem(idItem, nameItem) {
+function deleteItem(idItem, nameItem, queryID, query) {
     let deleteModal = document.getElementById('deleteModal');
     let confirmDeleteButton = document.getElementById('confirmDelete');
     let cancelDeleteButton = document.getElementById('cancelDelete');
@@ -15,7 +15,7 @@ function deleteItem(idItem, nameItem) {
     confirmDeleteButton.addEventListener('click', () => {
         const origin = location.origin;
         $.ajax({
-            url: `${origin}/admin/delete${nameItem}/${idItem}`,
+            url: `${origin}/admin/delete${nameItem}/${idItem}?${queryID}=${query}`,
             method: 'GET',
             success: function (response) {
                 $(`#${nameItem}-${idItem}`).remove();
@@ -84,7 +84,6 @@ function saveSubOrder(idSubOrder) {
 
 function selectFood() {
     let selectFoodModal = document.getElementById('selectFoodModal');
-    let confirmSelectButton = document.getElementById('confirmSelect');
     let cancelSelectButton = document.getElementById('cancelSelect');
 
     let selectFood = document.getElementById("food");
