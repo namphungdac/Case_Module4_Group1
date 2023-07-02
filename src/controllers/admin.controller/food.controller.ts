@@ -6,7 +6,9 @@ export class FoodController {
     static async getAddFoodPage(req: any, res: any) {
         try {
             const foodTypes = await FoodType.find();
-            res.render('admin/foodManager/createFood', { text: false, foodTypes: foodTypes })
+            if(foodTypes){
+                res.render('admin/foodManager/createFood', { text: false, foodTypes: foodTypes })
+            }
         } catch (err) {
             console.log(err.messages);
         }

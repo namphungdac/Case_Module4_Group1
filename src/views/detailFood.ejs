@@ -147,6 +147,12 @@
                                 <div class="food__review__item__text">
                                     <h6><%= comment.user.username %><span> </span></h6>
                                     <p><%= comment.comment  %></p>
+                                    <% if(locals.userLogin){ %>
+                                        <% if(comment.user.username === locals.userLogin.username){ %>
+                                            <a onclick="return confirm('Are you sure you want to delete your comment?')"
+                                                    href="/customer/deleteCmt/<%= comment._id %>" class="btn btn-danger">X</a>
+                                           <% } %>
+                                   <% } %>
                                 </div>
                             </div>
                             <% }) %>

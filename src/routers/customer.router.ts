@@ -12,6 +12,7 @@ customerRouter.post('/order', OrderController.orderTable);
 customerRouter.get('/detailFood/:id', homeController.getDetailFood)
 customerRouter.get('/menu',homeController.getMenuPage)
 customerRouter.post('/detailFood/:id', homeController.addRate);
+customerRouter.get('/deleteCmt/:id',homeController.deleteComment)
 
 
 
