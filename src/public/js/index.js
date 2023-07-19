@@ -1,8 +1,8 @@
 function submitForm() {
     document.getElementById("formSize").submit();
-  }
+}
 
-  function submitFormModal() {
+function submitFormModal() {
     document.getElementById("form-select-food").submit();
 }
 
@@ -35,7 +35,7 @@ function changeStatus(idItem, nameItem) {
     $.ajax({
         url: `${origin}/admin/changeStatus/${idItem}`,
         method: 'POST',
-        data: {status: status},
+        data: { status: status },
         success: function (response) {
             $(`#status-${nameItem}-${idItem}`).value = status;
         }
@@ -48,7 +48,7 @@ function changeOrder(idItem) {
     $.ajax({
         url: `${origin}/admin/changeOrder/${idItem}`,
         method: 'POST',
-        data: {table: table},
+        data: { table: table },
         success: function (response) {
             // $(`#status-table-${idItem}`).value = response.tableName;
             location.reload();
@@ -59,10 +59,10 @@ function changeOrder(idItem) {
 function changeQuantity(nameCal, idSubOrder) {
     let quantityFood = +document.getElementById(`food-qty-${idSubOrder}`).value;
     if (nameCal === 'add') {
-        quantityFood  += 1
+        quantityFood += 1
     } else {
         if (quantityFood !== 0) {
-            quantityFood  -= 1
+            quantityFood -= 1
         }
     }
     document.getElementById(`food-qty-${idSubOrder}`).value = quantityFood;
@@ -75,7 +75,7 @@ function saveSubOrder(idSubOrder) {
     $.ajax({
         url: `${origin}/admin/saveSubOrder/${idSubOrder}`,
         method: 'GET',
-        data: {quantity},
+        data: { quantity },
         success: function (response) {
             location.reload()
         }
@@ -94,7 +94,7 @@ function selectFood() {
         method: 'GET',
         success: function (response) {
             let foods = response.data.foods
-            foods.forEach((item, index)=> {
+            foods.forEach((item, index) => {
                 let option = document.createElement("option");
                 option.value = item._id;
                 option.textContent = item.name;
@@ -119,9 +119,22 @@ function pay(orderID) {
     $.ajax({
         url: `${origin}/admin/createBill/${orderID}`,
         method: 'GET',
-        data: {totalMoney},
+        data: { totalMoney },
         success: function (response) {
             location.reload()
         }
     })
+}
+
+function delelecmt(idcmt) {
+    if (confirm("Bạn muốn xóa không?")) {
+        $.ajax({
+            url: `/customer/deleteCmt/${idcmt}`,
+            method: 'DELETE',
+            success: function (response) {
+                $(`#${idcmt}`).remove()
+                location.reload()
+            }
+        })
+    }
 }

@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -94,7 +95,7 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="/menu">
+                        <a href="#tab-food">
                             <div class="service-item rounded pt-3">
                                 <div class="p-3">
                                     <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
@@ -269,14 +270,20 @@
                                     <div class="col-lg-6">
                                         <a href="detailFood/<%=gril._id%>">
                                             <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="<%= gril.imgUrl %>" alt="" style="width: 80px;">
+                                                <img class="flex-shrink-0 img-fluid rounded" src="<%= gril.imgUrl %>"
+                                                    alt="" style="width: 80px;">
                                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                        <span><%= gril.name %></span>
-                                                        <span class="text-primary"><%= (gril.price).toLocaleString() %> VNĐ</span>
+                                                        <span>
+                                                            <%= gril.name %>
+                                                        </span>
+                                                        <span class="text-primary">
+                                                            <%= (gril.price).toLocaleString() %> VNĐ
+                                                        </span>
                                                     </h5>
-                                                    <small class="fst-italic"><%= gril.description %></small>
+                                                    <small class="fst-italic">
+                                                        <%= gril.description %>
+                                                    </small>
                                                 </div>
                                             </div>
                                         </a>
@@ -293,20 +300,26 @@
                                     <div class="col-lg-6">
                                         <a href="detailFood/<%=chay._id%>">
                                             <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="<%= chay.imgUrl %>" alt="" style="width: 80px;">
+                                                <img class="flex-shrink-0 img-fluid rounded" src="<%= chay.imgUrl %>"
+                                                    alt="" style="width: 80px;">
                                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                        <span><%= chay.name %></span>
-                                                        <span class="text-primary"><%= (chay.price).toLocaleString() %> VNĐ</span>
+                                                        <span>
+                                                            <%= chay.name %>
+                                                        </span>
+                                                        <span class="text-primary">
+                                                            <%= (chay.price).toLocaleString() %> VNĐ
+                                                        </span>
                                                     </h5>
-                                                    <small class="fst-italic"><%= chay.description %></small>
+                                                    <small class="fst-italic">
+                                                        <%= chay.description %>
+                                                    </small>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <% }) %>
-                                <!--  -->
+                                        <!--  -->
 
                             </div>
                         </div>
@@ -317,20 +330,26 @@
                                     <div class="col-lg-6">
                                         <a href="detailFood/<%=eu._id%>">
                                             <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="<%= eu.imgUrl %>" alt="" style="width: 80px;">
+                                                <img class="flex-shrink-0 img-fluid rounded" src="<%= eu.imgUrl %>"
+                                                    alt="" style="width: 80px;">
                                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                        <span><%= eu.name %></span>
-                                                        <span class="text-primary"><%= (eu.price).toLocaleString() %> VNĐ</span>
+                                                        <span>
+                                                            <%= eu.name %>
+                                                        </span>
+                                                        <span class="text-primary">
+                                                            <%= (eu.price).toLocaleString() %> VNĐ
+                                                        </span>
                                                     </h5>
-                                                    <small class="fst-italic"><%= eu.description %></small>
+                                                    <small class="fst-italic">
+                                                        <%= eu.description %>
+                                                    </small>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <% }) %>
-                                <!--  -->
+                                        <!--  -->
 
                             </div>
                         </div>
@@ -341,20 +360,26 @@
                                     <div class="col-lg-6">
                                         <a href="detailFood/<%=jav._id %>">
                                             <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="<%= jav.imgUrl %>" alt="" style="width: 80px;">
+                                                <img class="flex-shrink-0 img-fluid rounded" src="<%= jav.imgUrl %>"
+                                                    alt="" style="width: 80px;">
                                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                        <span><%= jav.name %></span>
-                                                        <span class="text-primary"><%= (jav.price).toLocaleString() %> VNĐ</span>
+                                                        <span>
+                                                            <%= jav.name %>
+                                                        </span>
+                                                        <span class="text-primary">
+                                                            <%= (jav.price).toLocaleString() %> VNĐ
+                                                        </span>
                                                     </h5>
-                                                    <small class="fst-italic"><%= jav.description %></small>
+                                                    <small class="fst-italic">
+                                                        <%= jav.description %>
+                                                    </small>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <% }) %>
-                                <!--  -->
+                                        <!--  -->
 
                             </div>
                         </div>
@@ -365,20 +390,26 @@
                                     <div class="col-lg-6">
                                         <a href="detailFood/<%= drink._id %>">
                                             <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="<%= drink.imgUrl %>" alt="" style="width: 80px;">
+                                                <img class="flex-shrink-0 img-fluid rounded" src="<%= drink.imgUrl %>"
+                                                    alt="" style="width: 80px;">
                                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                        <span><%= drink.name %></span>
-                                                        <span class="text-primary"><%= (drink.price).toLocaleString() %> VNĐ</span>
+                                                        <span>
+                                                            <%= drink.name %>
+                                                        </span>
+                                                        <span class="text-primary">
+                                                            <%= (drink.price).toLocaleString() %> VNĐ
+                                                        </span>
                                                     </h5>
-                                                    <small class="fst-italic"><%= drink.description %></small>
+                                                    <small class="fst-italic">
+                                                        <%= drink.description %>
+                                                    </small>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <% }) %>
-                                <!--  -->
+                                        <!--  -->
 
                             </div>
                         </div>
@@ -404,13 +435,18 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="upload/avatar/<%= viet.avatar %>" alt="">
                             </div>
-                            <h5 class="mb-0"><%=viet.username%></h5>
+                            <h5 class="mb-0">
+                                <%=viet.username%>
+                            </h5>
                             <small>Vị trí</small>
                             <div>
-                                <small><h4>Múa lửa</h4></small> 
+                                <small>
+                                    <h4>Múa lửa</h4>
+                                </small>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href="https://www.facebook.com/profile.php?id=100049274229874"><i
+                                <a class="btn btn-square btn-primary mx-1"
+                                    href="https://www.facebook.com/profile.php?id=100049274229874"><i
                                         class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-github"></i></a>
                             </div>
@@ -421,13 +457,18 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="upload/avatar/<%= long.avatar %>" alt="">
                             </div>
-                            <h5 class="mb-0"><%=long.username%></h5>
+                            <h5 class="mb-0">
+                                <%=long.username%>
+                            </h5>
                             <small>Vị trí</small>
                             <div>
-                                <small><h4>Bếp trưởng</h4></small> 
+                                <small>
+                                    <h4>Bếp trưởng</h4>
+                                </small>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href="https://www.facebook.com/profile.php?id=100027665419690"><i
+                                <a class="btn btn-square btn-primary mx-1"
+                                    href="https://www.facebook.com/profile.php?id=100027665419690"><i
                                         class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-github"></i></a>
                             </div>
@@ -438,14 +479,18 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="upload/avatar/<%= ducanh.avatar %>" alt="">
                             </div>
-                            <h5 class="mb-0"><%=ducanh.username%></h5>
+                            <h5 class="mb-0">
+                                <%=ducanh.username%>
+                            </h5>
                             <small>Vị trí</small>
                             <div>
-                                <small><h4>Múa lửa</h4></small> 
+                                <small>
+                                    <h4>Múa lửa</h4>
+                                </small>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href="https://www.facebook.com/ducanh.2710203"><i
-                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1"
+                                    href="https://www.facebook.com/ducanh.2710203"><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href="#"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
@@ -485,7 +530,10 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            Thiết kế bởi: <a href="#">Team1-C0223G1CodeGym</a>
+                            DevTeam: Team1-C0223G1CodeGym
+                            <p>Nguyễn Hoàng Kỳ</p>
+                            <p>Chử Trọng Hiếu</p>
+                            <p>Phùng Đắc Nam</p>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">

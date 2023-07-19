@@ -75,7 +75,6 @@
                                     <%= locals.userLogin.username %>
                                 </a>
                                 <div class="dropdown-menu m-0">
-                                    <a href="/user/info" class="dropdown-item">Thông Tin Cá Nhân</a>
                                     <a href="auth/logout" class="dropdown-item">Đăng Xuất</a>
                                 </div>
                             </div>
@@ -140,22 +139,25 @@
                                 </h5>
                             </div>
                             <% listComment.forEach(comment=>{ %>
-                            <div class="food__review__item mb-2">
-                                <div class="food__review__item__pic">
-                                    <img src="upload/avatar/<%= comment.user.avatar %>" alt="">
+                                <div class="food__review__item mb-2">
+                                    <div class="food__review__item__pic">
+                                        <img src="upload/avatar/<%= comment.user.avatar %>" alt="">
+                                    </div>
+                                    <div class="food__review__item__text">
+                                        <h6>
+                                            <%= comment.user.username %><span> </span>
+                                        </h6>
+                                        <p>
+                                            <%= comment.comment %>
+                                        </p>
+                                        <% if(locals.userLogin){ %>
+                                            <% if(comment.user._id.toString()===locals.userLogin.id){ %>
+                                            <button class="btn btn-danger" onclick="delelecmt('<%= comment._id %>')" >X</button>
+                                                <% } %>
+                                                    <% } %>
+                                    </div>
                                 </div>
-                                <div class="food__review__item__text">
-                                    <h6><%= comment.user.username %><span> </span></h6>
-                                    <p><%= comment.comment  %></p>
-                                    <% if(locals.userLogin){ %>
-                                        <% if(comment.user.username === locals.userLogin.username){ %>
-                                            <a onclick="return confirm('Are you sure you want to delete your comment?')"
-                                                    href="/customer/deleteCmt/<%= comment._id %>" class="btn btn-danger">X</a>
-                                           <% } %>
-                                   <% } %>
-                                </div>
-                            </div>
-                            <% }) %>
+                                <% }) %>
                         </div>
                         <div class="food__details__form" id="tab-comment">
                             <div>
@@ -202,7 +204,10 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            Thiết kế bởi: <a href="#">Team1-C0223G1CodeGym</a>
+                            DevTeam: Team1-C0223G1CodeGym
+                            <p>Nguyễn Hoàng Kỳ</p>
+                            <p>Chử Trọng Hiếu</p>
+                            <p>Phùng Đắc Nam</p>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
@@ -233,7 +238,8 @@
     <script src="lib1/tempusdominus/js/moment.min.js"></script>
     <script src="lib1/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib1/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
