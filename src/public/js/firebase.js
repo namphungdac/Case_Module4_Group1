@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 function uploadImage(e) {
     let fbBucketName = 'images';
     let uploader = document.getElementById('uploader');
-    let files = e.target.files;  // Lấy danh sách các file đã được chọn
+    let files = e.target.files;  
     for (let i = 0; i < files.length; i++) {
         let file = files[i];
         let storageRef = firebase.storage().ref(`${fbBucketName}/${file.name}`);
